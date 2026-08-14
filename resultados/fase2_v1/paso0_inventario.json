@@ -1,0 +1,65 @@
+{
+  "seed": 42,
+  "lineas_leidas": 90076,
+  "ocid_unicos": 90076,
+  "duplicados_colapsados": 0,
+  "status": {
+    "complete": 72846,
+    "active": 14660,
+    "(sin dato)": 2570
+  },
+  "activos_tender_status": 14660,
+  "completos": 72846,
+  "proveedor_consultante": {
+    "id": "EC-RUC-1790475689001-5192",
+    "nombre": "ROCHE ECUADOR S.A.",
+    "procesos_historicos": 87,
+    "provincia": "PICHINCHA",
+    "cpc_distintos": 24,
+    "mediana_monto_historico": 34788.0,
+    "docs_corpus": 87
+  },
+  "descartes_por_falta_de_datos": {
+    "sin_provincia_comprador": 304,
+    "sin_items": 508
+  },
+  "matriz": {
+    "filas": 13848,
+    "columnas_semanticas": 6,
+    "columnas_codificadas_onehot": 24,
+    "modalidades_distintas": 19
+  },
+  "gower_n2": {
+    "celdas": 191767104,
+    "float64_GB": 1.429,
+    "float32_GB": 0.714,
+    "condensada_float64_GB": 0.714
+  },
+  "tfidf_terminos": 5000,
+  "modalidades_top": {
+    "Subasta Inversa Electrónica": 7990,
+    "Menor Cuantía": 1885,
+    "Contratacion directa": 981,
+    "Cotización": 825,
+    "Bienes y Servicios únicos": 549,
+    "Contratos entre Entidades Públicas o sus subsidiarias": 329,
+    "Comunicación Social – Contratación Directa": 317,
+    "Licitación de Seguros": 282,
+    "Repuestos o Accesorios": 183,
+    "Licitación": 178,
+    "Obra artística, científica o literaria": 138,
+    "Lista corta": 130,
+    "Transporte de correo interno o internacional": 19,
+    "Asesoría y Patrocinio Jurídico": 14,
+    "Concurso publico": 12
+  },
+  "origen_items": {
+    "tender.items": 13824,
+    "awards.items": 24
+  },
+  "origen_monto": {
+    "tender.lots": 7990,
+    "tender.value": 5858
+  },
+  "segundos": 27.6
+}

@@ -1,0 +1,313 @@
+{
+  "fecha_hoy": "2026-07-18",
+  "totales": {
+    "2024": 66047,
+    "2025": 23795,
+    "2026": 234
+  },
+  "cobertura": {
+    "parties[]": {
+      "2024": 99.77,
+      "2025": 100.0,
+      "2026": 100.0
+    },
+    "parties[].address.region (supplier)": {
+      "2024": 92.84,
+      "2025": 96.77,
+      "2026": 93.59
+    },
+    "parties[].address.region (buyer)": {
+      "2024": 98.58,
+      "2025": 97.71,
+      "2026": 91.03
+    },
+    "awards[].suppliers[].id": {
+      "2024": 94.34,
+      "2025": 98.47,
+      "2026": 100.0
+    },
+    "awards[].value.amount": {
+      "2024": 94.34,
+      "2025": 98.47,
+      "2026": 100.0
+    },
+    "awards[].items[].classification.id": {
+      "2024": 94.34,
+      "2025": 98.47,
+      "2026": 100.0
+    },
+    "awards[].items[].description": {
+      "2024": 94.34,
+      "2025": 98.47,
+      "2026": 100.0
+    },
+    "buyer.id": {
+      "2024": 100.0,
+      "2025": 100.0,
+      "2026": 100.0
+    },
+    "tender": {
+      "2024": 96.45,
+      "2025": 99.06,
+      "2026": 100.0
+    },
+    "tender.items[].classification.id": {
+      "2024": 13.69,
+      "2025": 32.6,
+      "2026": 98.72
+    },
+    "tender.items[].description": {
+      "2024": 13.69,
+      "2025": 32.6,
+      "2026": 98.72
+    },
+    "tender.value.amount": {
+      "2024": 88.1,
+      "2025": 80.37,
+      "2026": 59.4
+    },
+    "planning.budget": {
+      "2024": 8.0,
+      "2025": 14.81,
+      "2026": 59.4
+    },
+    "tender.procurementMethodDetails": {
+      "2024": 96.45,
+      "2025": 99.06,
+      "2026": 100.0
+    },
+    "tender.status": {
+      "2024": 96.45,
+      "2025": 99.06,
+      "2026": 100.0
+    },
+    "tender.tenderPeriod.endDate": {
+      "2024": 4.93,
+      "2025": 11.51,
+      "2026": 45.73
+    },
+    "tender.tenderers[]": {
+      "2024": 14.16,
+      "2025": 32.82,
+      "2026": 100.0
+    },
+    "bids.details[]": {
+      "2024": 0.62,
+      "2025": 0.26,
+      "2026": 0.43
+    }
+  },
+  "status_por_anio": {
+    "2024": {
+      "complete": 56677,
+      "active": 7023,
+      "(sin dato)": 2347
+    },
+    "2025": {
+      "active": 7409,
+      "complete": 16163,
+      "(sin dato)": 223
+    },
+    "2026": {
+      "active": 228,
+      "complete": 6
+    }
+  },
+  "vigencia_2026": {
+    "vigentes": 0,
+    "total": 234
+  },
+  "top_modalidades": {
+    "2024": [
+      [
+        "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-007-2020, SUMINISTROS DE OFICINA , SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE SUMINISTROS DE OFICINA",
+        15345
+      ],
+      [
+        "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-006-2020, Suministros de Limpieza 2020, SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE SUMINISTROS DE LIMPIEZA",
+        9503
+      ],
+      [
+        "Catálogo electrónico - Compra directa en el convenio CDI-SERCOP-001-2016, PROVISIÓN DE PRODUCTOS DE CONFECCIÓN TEXTIL, PROVISIÓN DE PRODUCTOS DE CONFECCIÓN TEXTIL",
+        5885
+      ],
+      [
+        "Subasta Inversa Electrónica",
+        5512
+      ],
+      [
+        "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-002-2024, SUMINISTROS DE OFICINA 2024, SUMINISTROS DE OFICINA Y ACCESORIOS TECNOLÓGICOS",
+        5436
+      ],
+      [
+        "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-002-2021, SUMINISTROS DE IMPRESIÓN, SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE SUMINISTROS DE IMPRESIÓN",
+        2449
+      ],
+      [
+        "(sin dato)",
+        2347
+      ],
+      [
+        "Menor Cuantía",
+        1208
+      ],
+      [
+        "Catálogo electrónico - Gran compra puja en el convenio SERCOP-SELPROV-002-2022, SERVICIO DE VIGILANCIA Y SEGURIDAD PRIVADA FIJA 2022, SELECCIÓN DE PROVEEDORES PARA LA PRESTACIÓN DEL SERVICIO DE VIGILANCIA Y SEGURIDAD PRIVADA FIJA",
+        1146
+      ],
+      [
+        "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-008-2022, Neumáticos 2022, SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE NEUMÁTICOS",
+        886
+      ]
+    ],
+    "2025": [
+      [
+        "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-002-2024, SUMINISTROS DE OFICINA 2024, SUMINISTROS DE OFICINA Y ACCESORIOS TECNOLÓGICOS",
+        6769
+      ],
+      [
+        "Subasta Inversa Electrónica",
+        4449
+      ],
+      [
+        "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-006-2020, Suministros de Limpieza 2020, SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE SUMINISTROS DE LIMPIEZA",
+        4272
+      ],
+      [
+        "Menor Cuantía",
+        1159
+      ],
+      [
+        "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-002-2021, SUMINISTROS DE IMPRESIÓN, SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE SUMINISTROS DE IMPRESIÓN",
+        823
+      ],
+      [
+        "Catálogo electrónico - Compra directa en el convenio CDI-SERCOP-001-2016, PROVISIÓN DE PRODUCTOS DE CONFECCIÓN TEXTIL, PROVISIÓN DE PRODUCTOS DE CONFECCIÓN TEXTIL",
+        594
+      ],
+      [
+        "Contratacion directa",
+        532
+      ],
+      [
+        "Cotización",
+        506
+      ],
+      [
+        "Catálogo electrónico - Compra directa en el convenio CDI-SERCOP-001-2015, SERVICIO DE LIMPIEZA DE OFICINAS, SERVICIO DE LIMPIEZA EN EL PRODUCTO LIMPIEZA DE OFICINAS",
+        314
+      ],
+      [
+        "Bienes y Servicios únicos",
+        275
+      ]
+    ],
+    "2026": [
+      [
+        "Subasta Inversa Electrónica",
+        95
+      ],
+      [
+        "Menor Cuantía",
+        38
+      ],
+      [
+        "Contratacion directa",
+        24
+      ],
+      [
+        "Cotización",
+        17
+      ],
+      [
+        "Licitación de Seguros",
+        14
+      ],
+      [
+        "Bienes y Servicios únicos",
+        14
+      ],
+      [
+        "Lista corta",
+        7
+      ],
+      [
+        "Contratos entre Entidades Públicas o sus subsidiarias",
+        7
+      ],
+      [
+        "Comunicación Social – Contratación Directa",
+        5
+      ],
+      [
+        "Obra artística, científica o literaria",
+        4
+      ]
+    ]
+  },
+  "tenderers_por_modalidad": {
+    "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-007-2020, SUMINISTROS DE OFICINA , SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE SUMINISTROS DE OFICINA": {
+      "con_tenderers": 0,
+      "total": 15345,
+      "pct": 0.0
+    },
+    "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-006-2020, Suministros de Limpieza 2020, SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE SUMINISTROS DE LIMPIEZA": {
+      "con_tenderers": 0,
+      "total": 13775,
+      "pct": 0.0
+    },
+    "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-002-2024, SUMINISTROS DE OFICINA 2024, SUMINISTROS DE OFICINA Y ACCESORIOS TECNOLÓGICOS": {
+      "con_tenderers": 0,
+      "total": 12205,
+      "pct": 0.0
+    },
+    "Subasta Inversa Electrónica": {
+      "con_tenderers": 9885,
+      "total": 10056,
+      "pct": 98.3
+    },
+    "Catálogo electrónico - Compra directa en el convenio CDI-SERCOP-001-2016, PROVISIÓN DE PRODUCTOS DE CONFECCIÓN TEXTIL, PROVISIÓN DE PRODUCTOS DE CONFECCIÓN TEXTIL": {
+      "con_tenderers": 0,
+      "total": 6479,
+      "pct": 0.0
+    },
+    "Catálogo electrónico - Mejor oferta en el convenio SERCOP-SELPROV-002-2021, SUMINISTROS DE IMPRESIÓN, SELECCIÓN DE PROVEEDORES PARA LA ADQUISICIÓN DE SUMINISTROS DE IMPRESIÓN": {
+      "con_tenderers": 0,
+      "total": 3272,
+      "pct": 0.0
+    },
+    "(sin dato)": {
+      "con_tenderers": 0,
+      "total": 2570,
+      "pct": 0.0
+    },
+    "Menor Cuantía": {
+      "con_tenderers": 2405,
+      "total": 2405,
+      "pct": 100.0
+    },
+    "Contratacion directa": {
+      "con_tenderers": 1230,
+      "total": 1230,
+      "pct": 100.0
+    },
+    "Catálogo electrónico - Gran compra puja en el convenio SERCOP-SELPROV-002-2022, SERVICIO DE VIGILANCIA Y SEGURIDAD PRIVADA FIJA 2022, SELECCIÓN DE PROVEEDORES PARA LA PRESTACIÓN DEL SERVICIO DE VIGILANCIA Y SEGURIDAD PRIVADA FIJA": {
+      "con_tenderers": 0,
+      "total": 1146,
+      "pct": 0.0
+    }
+  },
+  "muestra_regiones": [
+    "GALAPAGOS",
+    "GUAYAS",
+    "PICHINCHA",
+    "AZUAY",
+    "CAÑAR",
+    "CHIMBORAZO",
+    "LOJA",
+    "ZAMORA CHINCHIPE",
+    "COTOPAXI",
+    "MANABI"
+  ],
+  "otras_rutas_presupuesto": {}
+}

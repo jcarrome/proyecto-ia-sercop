@@ -1,0 +1,4 @@
+﻿grupo,tamano,pct,distancia_km,cpc_jaccard4,sim_tfidf,desviacion_presupuesto,actividad_cpc_comprador,afinidad_comprador,presupuesto_medio_usd,modalidad_dominante,ocid_medoide
+0,976,32.53,35.3982,0.0049,0.0219,-1.1395,2.5564,0.0298,201965.01,Subasta Inversa Electrónica,ocds-5wno2w-SIE-SEDMQ-2024-00005-369703
+1,510,17.0,214.6143,0.3333,0.1501,-1.3926,8.1,0.2545,90568.32,Subasta Inversa Electrónica,ocds-5wno2w-SIE-HBFVB-2024-00018-1163409
+2,1514,50.47,271.3159,0.0,0.0205,-1.3717,2.3983,0.0097,167486.98,Subasta Inversa Electrónica,ocds-5wno2w-SIE-DD09D20SS-2024-016-131240

@@ -1,0 +1,17 @@
+# Configuración local del dashboard (Fase 3).
+# Sin telemetría ni llamadas externas: el prototipo corre 100 % offline.
+
+[browser]
+gatherUsageStats = false
+
+[client]
+# oculta la barra "Deploy" de Streamlit para que las capturas del reporte
+# muestren sólo la aplicación
+toolbarMode = "minimal"
+showErrorDetails = true
+
+[server]
+headless = true
+
+[theme]
+base = "light"

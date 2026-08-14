@@ -1,0 +1,83 @@
+LOG DE EJECUCIÓN — comparación de seis algoritmos de agrupamiento
+Proyecto final de IA — ESPOL CCPG1044 Grupo #3 — SERCOP/OCDS
+Generado: 2026-07-29 23:21:36
+
+VERSIONES DE LIBRERÍAS
+   python           3.11.15
+   numpy            2.4.6
+   pandas           3.0.5
+   scipy            1.17.1
+   scikit-learn     1.9.0
+   kmodes           0.12.2
+   matplotlib       3.11.1
+   so               Windows 10
+   scikit-learn-extra ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+
+SEMILLA: random_state = 42 en todos los ajustes
+
+DATOS
+   archivos ................ data/2024.jsonl.gz, 2025.jsonl.gz, 2026.jsonl.gz
+   procesos leídos ......... 90,076
+   procesos activos ........ 14,660
+   filas de la matriz ...... 13,848 x 6
+   matriz codificada ....... 13,848 x 24
+   Gower ................... 13,848^2 float32 = 0.714 GB
+   proveedor consultante ... ROCHE ECUADOR S.A. (EC-RUC-1790475689001-5192)
+
+TIEMPOS (segundos)
+   preprocesamiento              0.09
+   gower                         3.81
+   kprototypes_barrido         731.75
+   kmeans_barrido               10.49
+   linkage_average               4.59
+   jerarquico_barrido           10.69
+   pam_barrido                  53.10
+   k_distancias                  0.73
+   dbscan_barrido               85.24
+   gmm_barrido                  23.34
+   estabilidad                1137.37
+   isolation_forest              2.65
+   mds                          84.87
+   TOTAL medido               2148.72
+
+k SELECCIONADO POR ALGORITMO
+   K-Prototypes ............ k=3 (máx. silueta Gower)
+   K-Means ................. k=5 (máx. silueta Gower)
+   Jerárquico .............. k=3 (máx. silueta Gower)
+   K-Medoids (PAM) ......... k=10 (máx. silueta Gower)
+   DBSCAN .................. 17 grupos OBTENIDOS (eps=0.015, min_samples=20)
+   GMM ..................... k=10 (mín. BIC)
+
+DESVIACIONES Y LIMITACIONES DECLARADAS
+   1. scikit-learn-extra no importa con numpy 2.x:
+      ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+      -> PAM implementado en scripts/nucleo.py sobre la matriz de Gower
+         (init BUILD + refinamiento alternante; el SWAP exhaustivo de PAM clásico
+          es O(k(n-k)^2) por iteración e intratable con n=13.848).
+   2. La matriz de Gower se guarda en float32 (0.71 GB) en vez de float64 (1.43 GB)
+      por la memoria física disponible en la máquina.
+   3. La proyección MDS se calcula sobre una submuestra estratificada de 2,000 procesos:
+      SMACOF es O(n^2) por iteración y no es viable con n=13.848. Es sólo una figura;
+      ninguna métrica de la tabla 6 depende de ella.
+   4. Davies-Bouldin y Calinski-Harabasz se calculan sobre la matriz CODIFICADA
+      (euclidiana), no sobre Gower. Criterio secundario, así etiquetado.
+   5. 812 procesos activos (5,5%) quedaron fuera de la matriz por datos faltantes
+      (508 sin ítems, 304 sin provincia del comprador). No se imputó nada.
+   6. 'Catálogo Electrónico' no aparece entre los procesos activos: la regla de
+      colapsar convenios se aplicó pero resulta inocua sobre esta matriz.
+
+SALIDAS
+   OK  resultados/tabla6_comparacion.csv
+   OK  resultados/tabla7_lineas_base.csv
+   OK  resultados/tabla8_perfiles.csv
+   OK  resultados/tabla9_atipicos.csv
+   OK  resultados/asignabilidad.csv
+   OK  resultados/matriz_procesos.csv
+   OK  resultados/fig_codo_por_algoritmo.png
+   OK  resultados/fig_silueta_por_grupo_ganador.png
+   OK  resultados/fig_mds_grupos_ganador.png
+   OK  resultados/fig_kdistancias_dbscan.png
+
+RESULTADO
+   GANADOR: K-Medoids (PAM)  (silueta Gower = 0.5202)
+   DESCARTADO: DBSCAN -> cobertura 84.50% < 90%

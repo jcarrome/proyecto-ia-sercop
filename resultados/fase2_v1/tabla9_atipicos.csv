@@ -1,0 +1,11 @@
+Grupo,Procesos,Atípicos,%,Variable que más se aleja
+0,1082,55,5.08,cpc_match_score (1.72σ)
+1,363,19,5.23,actividad_cpc_comprador (2.17σ)
+2,1891,95,5.02,cpc_match_score (1.72σ)
+3,388,20,5.15,actividad_cpc_comprador (1.95σ)
+4,351,18,5.13,cpc_match_score (2.44σ)
+5,553,28,5.06,cpc_match_score (2.84σ)
+6,2257,113,5.01,cpc_match_score (2.33σ)
+7,2986,150,5.02,actividad_cpc_comprador (2.12σ)
+8,1016,51,5.02,actividad_cpc_comprador (2.05σ)
+9,2961,148,5.0,actividad_cpc_comprador (1.82σ)

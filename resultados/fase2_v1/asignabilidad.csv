@@ -1,0 +1,7 @@
+Algoritmo,Asignación de un proveedor nuevo
+K-Prototypes,Directa por PROTOTIPO: distancia mixta (euclidiana en las numéricas + desacuerdo x gamma en la modalidad) al prototipo de cada grupo; gana el mínimo.
+K-Means,Directa por PROTOTIPO: distancia euclidiana al centroide en el espacio codificado (numéricas z-score + one-hot de modalidad).
+Jerárquico (promedio),SIN prototipo nativo. Se calcula el CENTROIDE EMPÍRICO de cada grupo (media de las numéricas + modalidad modal) y se asigna por Gower al más cercano.
+K-Medoids (PAM),"Directa por MEDOIDE: distancia de Gower a cada medoide, que es un proceso real del conjunto; gana el mínimo."
+DBSCAN,"SIN prototipo nativo y con ruido. Se calcula el CENTROIDE EMPÍRICO de cada grupo real y se asigna por Gower; si la distancia supera eps, el proceso queda como ruido."
+GMM,Directa por PROTOTIPO probabilístico: se evalúa la densidad de cada componente y se asigna al de mayor probabilidad posterior (predict_proba).

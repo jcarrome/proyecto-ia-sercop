@@ -1,0 +1,195 @@
+﻿[comparar] perfiles=12,220  procesos activos=7,637
+[comparar] muestra usada por TODOS los algoritmos: 3,000 (muestreado=sí, seed=42)
+
+[comparar] proveedores ELEGIBLES: 14 de 12,220
+[comparar] proveedores de referencia (anonimizados):
+  P1: provincia=GUAYAS | adjudicaciones competitivas=79 | catálogo=0.0 % | total histórico=79 | CPC históricos=39 | monto promedio=36,185 USD
+  P2: provincia=PICHINCHA | adjudicaciones competitivas=75 | catálogo=0.0 % | total histórico=75 | CPC históricos=8 | monto promedio=30,684 USD
+  P3: provincia=SANTO DOMINGO DE LOS TSACHILAS | adjudicaciones competitivas=54 | catálogo=0.0 % | total histórico=54 | CPC históricos=46 | monto promedio=32,384 USD
+
+[comparar] === P1 (GUAYAS) ===
+    matriz de interacción lista (cpc_jaccard4>0 en 6.6 % (media 0.0330), afinidad_comprador>0 en 9.9 % (297 procesos, media 0.0859, máx 1.609), sim_tfidf media=0.0278, provincias desconocidas=94)
+    matriz de correlación de las numéricas (P1):
+                                    1       2       3       4       5       6
+      1. distancia_km               1.000  -0.046  -0.050  -0.052   0.006  -0.058
+      2. cpc_jaccard4              -0.046   1.000   0.869  -0.059  -0.042   0.274
+      3. sim_tfidf                 -0.050   0.869   1.000  -0.037  -0.035   0.295
+      4. desviacion_presupuesto    -0.052  -0.059  -0.037   1.000   0.063  -0.008
+      5. actividad_cpc_comprador    0.006  -0.042  -0.035   0.063   1.000  -0.016
+      6. afinidad_comprador        -0.058   0.274   0.295  -0.008  -0.016   1.000
+    winsorización p1/p99: {'distancia_km': 15, 'cpc_jaccard4': 0, 'sim_tfidf': 28, 'desviacion_presupuesto': 60, 'actividad_cpc_comprador': 24, 'afinidad_comprador': 29}
+    Gower ponderada lista (3000, 3000) en 4.6 s (pesos: 1.0 x6 numéricas, 0.333 categórica)
+    líneas base -> modalidad trivial=0.1325 | aleatoria k=3..10: [-0.0046, -0.0108, -0.0162, -0.0193, -0.0371, -0.0216, -0.0282, -0.0333]
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P1 completado en 163.7 s
+
+[comparar] === P2 (PICHINCHA) ===
+    matriz de interacción lista (cpc_jaccard4>0 en 11.4 % (media 0.0279), afinidad_comprador>0 en 8.0 % (239 procesos, media 0.0726, máx 1.386), sim_tfidf media=0.0550, provincias desconocidas=94)
+    matriz de correlación de las numéricas (P2):
+                                    1       2       3       4       5       6
+      1. distancia_km               1.000   0.058   0.022  -0.073  -0.041   0.017
+      2. cpc_jaccard4               0.058   1.000   0.774   0.005   0.314   0.297
+      3. sim_tfidf                  0.022   0.774   1.000  -0.009   0.382   0.273
+      4. desviacion_presupuesto    -0.073   0.005  -0.009   1.000   0.063  -0.070
+      5. actividad_cpc_comprador   -0.041   0.314   0.382   0.063   1.000   0.261
+      6. afinidad_comprador         0.017   0.297   0.273  -0.070   0.261   1.000
+    winsorización p1/p99: {'distancia_km': 15, 'cpc_jaccard4': 0, 'sim_tfidf': 1, 'desviacion_presupuesto': 60, 'actividad_cpc_comprador': 24, 'afinidad_comprador': 26}
+    Gower ponderada lista (3000, 3000) en 4.8 s (pesos: 1.0 x6 numéricas, 0.333 categórica)
+    líneas base -> modalidad trivial=0.0837 | aleatoria k=3..10: [-0.0038, -0.0213, -0.0387, -0.0256, -0.0348, -0.0279, -0.0376, -0.0489]
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P2 completado en 142.5 s
+
+[comparar] === P3 (SANTO DOMINGO DE LOS TSACHILAS) ===
+    matriz de interacción lista (cpc_jaccard4>0 en 17.4 % (media 0.0343), afinidad_comprador>0 en 7.2 % (216 procesos, media 0.0558, máx 1.386), sim_tfidf media=0.0305, provincias desconocidas=94)
+    matriz de correlación de las numéricas (P3):
+                                    1       2       3       4       5       6
+      1. distancia_km               1.000   0.055   0.041  -0.088  -0.028  -0.024
+      2. cpc_jaccard4               0.055   1.000   0.583  -0.032   0.238   0.281
+      3. sim_tfidf                  0.041   0.583   1.000  -0.039  -0.013   0.251
+      4. desviacion_presupuesto    -0.088  -0.032  -0.039   1.000   0.063  -0.053
+      5. actividad_cpc_comprador   -0.028   0.238  -0.013   0.063   1.000   0.043
+      6. afinidad_comprador        -0.024   0.281   0.251  -0.053   0.043   1.000
+    winsorización p1/p99: {'distancia_km': 15, 'cpc_jaccard4': 0, 'sim_tfidf': 30, 'desviacion_presupuesto': 60, 'actividad_cpc_comprador': 24, 'afinidad_comprador': 4}
+    Gower ponderada lista (3000, 3000) en 4.7 s (pesos: 1.0 x6 numéricas, 0.333 categórica)
+    líneas base -> modalidad trivial=0.0959 | aleatoria k=3..10: [-0.0036, -0.023, -0.0259, -0.0224, -0.0443, -0.0259, -0.0246, -0.0495]
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P3 completado en 146.8 s
+    [!] IsolationForest ajustado POR GRUPO con contamination=0.05 devuelve ~5 % de atípicos en todos los grupos por construcción (la contaminación es un parámetro, no una medición). La columna pct_atipicos_modelo_global (un solo bosque sobre toda la muestra) sí discrimina y es la que conviene leer
+
+[comparar] === CONTINUIDAD: ROCHE ECUADOR S.A. ===
+    silueta=0.3194 | grupos=3 | ARI vs modalidad=-0.036 | entropía=0.921 | cobertura=100.0 %
+
+[comparar] archivos generados:
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P1.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P2.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P3.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\candidatos_evaluados.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_modelos.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\lineas_base.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\eta2_variables.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_detalle_k.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_barras.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\perfil_centroides_ganador.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\atipicos_resumen.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\modelo_ganador.pkl
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\etiquetas_ganador.npz
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\continuidad_perfil_grupos.csv
+
+
+=== REPORTE FASE 2.2 — PARA EL DISEÑADOR ===
+ESTADO: OK con incidencias
+PROVEEDORES ÚNICOS (24+25): 12,220 | ELEGIBLES tras los criterios de la Fase 2.2 (>=30 competitivas, >=5 CPC, <60 % catálogo): 14
+PROVEEDORES DE REFERENCIA (anonimizados):
+  P1: provincia=GUAYAS | adjudicaciones competitivas=79 | catálogo=0.0 % | total histórico=79
+  P2: provincia=PICHINCHA | adjudicaciones competitivas=75 | catálogo=0.0 % | total histórico=75
+  P3: provincia=SANTO DOMINGO DE LOS TSACHILAS | adjudicaciones competitivas=54 | catálogo=0.0 % | total histórico=54
+PROCESOS ACTIVOS: 3,000 (muestreados: sí) | MODALIDAD_NORM: Subasta Inversa Electrónica=1687, Menor Cuantía=443, Contratacion directa=213, Cotización=196, Otros=159, Bienes y Servicios únicos=113, Comunicación Social – Contratación Directa=76, Contratos entre Entidades Públicas o sus subsidiarias=59, Licitación de Seguros=54
+VARIABLES DEL MODELO (6 numéricas + modalidad_norm con peso 0.333): distancia_km, cpc_jaccard4, sim_tfidf, desviacion_presupuesto, actividad_cpc_comprador, afinidad_comprador
+  (fuera desde la Fase 2.2: log_presupuesto por r=1.0000 con desviacion_presupuesto; modalidad_afinidad por eta^2=1.000)
+VARIABLES POR PROVEEDOR:
+  P1: cpc_jaccard4>0 en 6.6 % (media 0.0330) | sim_tfidf media=0.0278 | recortes winsor p1/p99=156
+  P2: cpc_jaccard4>0 en 11.4 % (media 0.0279) | sim_tfidf media=0.0550 | recortes winsor p1/p99=126
+  P3: cpc_jaccard4>0 en 17.4 % (media 0.0343) | sim_tfidf media=0.0305 | recortes winsor p1/p99=133
+AFINIDAD_COMPRADOR (variable nueva):
+  P1: >0 en 9.9 % de los procesos (297 de 3,000 con comprador ya conocido) | media=0.0859 | máx=1.609 | eta^2 vs modalidad=0.027
+  P2: >0 en 8.0 % de los procesos (239 de 3,000 con comprador ya conocido) | media=0.0726 | máx=1.386 | eta^2 vs modalidad=0.041
+  P3: >0 en 7.2 % de los procesos (216 de 3,000 con comprador ya conocido) | media=0.0558 | máx=1.386 | eta^2 vs modalidad=0.026
+DEPENDENCIA DE LAS NUMÉRICAS RESPECTO DE modalidad_norm (eta^2; 1.000 = re-codificación de la categórica):
+  distancia_km               P1=0.009 | P2=0.010 | P3=0.010
+  cpc_jaccard4               P1=0.049 | P2=0.086 | P3=0.145
+  sim_tfidf                  P1=0.046 | P2=0.061 | P3=0.055
+  desviacion_presupuesto     P1=0.270 | P2=0.270 | P3=0.270
+  actividad_cpc_comprador    P1=0.011 | P2=0.011 | P3=0.011
+  afinidad_comprador         P1=0.027 | P2=0.041 | P3=0.026
+LÍNEAS BASE DE CONTROL (silueta-Gower ponderada):
+  P1: modalidad trivial=0.1325 | aleatoria (k=3..10)=-0.0371..-0.0046
+  P2: modalidad trivial=0.0837 | aleatoria (k=3..10)=-0.0489..-0.0038
+  P3: modalidad trivial=0.0959 | aleatoria (k=3..10)=-0.0495..-0.0036
+TABLA COMPARATIVA (silueta-Gower ponderada promedio P1-P3 | mejor k | DB | CH | ARI-mod | ARI-cuartil | entropía | cobertura | estado):
+  K-Prototypes           |   0.2540 | k=7    | DB=  1.149 | CH=   919.7 | ARIm=-0.020 | ARIc= 0.188 | H=0.826 | cob=100.0% | apto
+  K-Means                |   0.2581 | k=7    | DB=  1.150 | CH=   921.6 | ARIm=-0.010 | ARIc= 0.191 | H=0.823 | cob=100.0% | apto
+  Jerárquico (average)   |   0.5900 | k=3    | DB=  0.923 | CH=   565.9 | ARIm=-0.083 | ARIc= 0.000 | H=0.293 | cob=100.0% | DESCALIFICADO
+      motivo: P1: entropía de tamaños 0.231 < 0.5 | P2: entropía de tamaños 0.230 < 0.5 | P3: entropía de tamaños 0.419 < 0.5
+  K-Medoids (PAM)        |   0.2769 | k=3    | DB=  1.677 | CH=   842.6 | ARIm=-0.039 | ARIc= 0.004 | H=0.848 | cob=100.0% | apto
+  DBSCAN/HDBSCAN         |   0.3261 | k=6    | DB=  1.218 | CH=   469.5 | ARIm= 0.618 | ARIc= 0.023 | H=0.753 | cob= 77.1% | DESCALIFICADO
+      motivo: P1: cobertura 78.0 % < 85.0 % | P2: cobertura 75.6 % < 85.0 % | P3: cobertura 77.8 % < 85.0 %
+  Gaussian Mixture       |   0.2341 | k=9    | DB=  1.970 | CH=   402.6 | ARIm= 0.468 | ARIc= 0.026 | H=0.764 | cob=100.0% | apto
+  (ARIm/ARIc = Adjusted Rand Index contra modalidad_norm y contra el cuartil de log_presupuesto; >0.90 descalifica por copia de columna)
+GANADOR: K-Medoids (PAM), k=3, silueta=0.2769 | SEGUNDO: K-Means, silueta=0.2581
+DESCALIFICACIONES: 15 de 43 configuraciones (algoritmo x k) incumplen alguna regla; detalle en candidatos_evaluados.csv
+¿K-MEDOIDS REVALIDÓ POR TERCERA VEZ?: sí — gana el portafolio, silueta=0.2769, k=3
+COMPARACIÓN ENTRE RONDAS (silueta-Gower promedio P1-P3 | k | estado):
+  algoritmo              |            v1 (Fase 2) |                   v2.1 |                  v2.2 (esta)
+  K-Prototypes           |             0.1711 k=3 |        0.3555 k=4 apto |              0.2540 k=7 apto
+  K-Means                |             0.2271 k=3 |        0.3680 k=4 apto |              0.2581 k=7 apto
+  Jerárquico (average)   |            0.5566 k=10 |     0.5032 k=5 DESCAL. |           0.5900 k=3 DESCAL.
+  K-Medoids (PAM)        |             0.5070 k=4 |        0.4421 k=3 apto |              0.2769 k=3 apto
+  DBSCAN/HDBSCAN         |             0.6539 k=9 |     0.5421 k=2 DESCAL. |           0.3261 k=6 DESCAL.
+  Gaussian Mixture       |             0.4276 k=6 |     0.3330 k=4 DESCAL. |              0.2341 k=9 apto
+  NOTA: v1 usaba Gower SIN pesos y 6 variables con cpc_match binaria; v2.1 Gower ponderada y 7 variables; v2.2 Gower ponderada y 6 variables sin redundancias. Las siluetas NO son directamente comparables entre rondas (cambió la distancia); sí lo son el orden relativo y el estado.
+DBSCAN/HDBSCAN:
+  P1 DBSCAN eps=p5=0.0055: grupos=11, ruido=89.2 %, n/d (descartada) 
+  P1 DBSCAN eps=p10=0.0068: grupos=8, ruido=80.8 %, n/d (descartada) 
+  P1 DBSCAN eps=p15=0.0081: grupos=13, ruido=73.3 %, n/d (descartada) 
+  P1 DBSCAN eps=p20=0.0092: grupos=17, ruido=67.5 %, n/d (descartada) 
+  P1 HDBSCAN(paquete hdbscan) mcs=30: grupos=7, ruido=22.0 %, silueta=0.3229 
+  P1 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=7, ruido=22.0 %, silueta=0.3229)
+  P2 DBSCAN eps=p5=0.0061: grupos=8, ruido=88.9 %, n/d (descartada) 
+  P2 DBSCAN eps=p10=0.0079: grupos=10, ruido=82.3 %, n/d (descartada) 
+  P2 DBSCAN eps=p15=0.0096: grupos=17, ruido=72.1 %, n/d (descartada) 
+  P2 DBSCAN eps=p20=0.0108: grupos=21, ruido=66.1 %, n/d (descartada) 
+  P2 HDBSCAN(paquete hdbscan) mcs=30: grupos=6, ruido=24.4 %, silueta=0.3486 
+  P2 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=6, ruido=24.4 %, silueta=0.3486)
+  P3 DBSCAN eps=p5=0.0062: grupos=9, ruido=88.8 %, n/d (descartada) 
+  P3 DBSCAN eps=p10=0.0081: grupos=12, ruido=81.9 %, n/d (descartada) 
+  P3 DBSCAN eps=p15=0.0098: grupos=17, ruido=71.2 %, n/d (descartada) 
+  P3 DBSCAN eps=p20=0.0109: grupos=11, ruido=67.4 %, n/d (descartada) 
+  P3 HDBSCAN(paquete hdbscan) mcs=30: grupos=9, ruido=22.2 %, silueta=0.3067 
+  P3 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=9, ruido=22.2 %, silueta=0.3067)
+GMM:
+  P1: mejor k por BIC=10 (BIC=-306,307) | mejor k por silueta=10 (0.2517)
+  P2: mejor k por BIC=10 (BIC=-321,199) | mejor k por silueta=9 (0.2235)
+  P3: mejor k por BIC=10 (BIC=-309,382) | mejor k por silueta=9 (0.2421)
+PERFIL DE CENTROIDES DEL GANADOR (K-Medoids (PAM), k=3, proveedor P2):
+ grupo  tamano   pct  distancia_km  cpc_jaccard4  sim_tfidf  desviacion_presupuesto  actividad_cpc_comprador  afinidad_comprador  presupuesto_medio_usd         modalidad_dominante                            ocid_medoide
+     2    1697 56.57      273.0463        0.0079     0.0224                  0.3634                   2.3500              0.0519              157555.88 Subasta Inversa Electrónica     ocds-5wno2w-SIE-FTTG-2024-018-25399
+     0    1049 34.97       36.1803        0.0065     0.0220                  0.5954                   2.6092              0.0485              197454.60 Subasta Inversa Electrónica ocds-5wno2w-SIE-SEDMQ-2024-00005-369703
+     1     254  8.47      210.4782        0.2500     0.4096                  0.4059                  13.9055              0.3103               88113.25 Subasta Inversa Electrónica     ocds-5wno2w-SIE-HUG-2024-047-592228
+ATÍPICOS (ganador):
+  grupo 0 (n=1049): intra-grupo=5.0 % | modelo global=1.4 % 
+  grupo 1 (n=254): intra-grupo=5.1 % | modelo global=44.1 % 
+  grupo 2 (n=1697): intra-grupo=5.0 % | modelo global=1.4 % 
+CORRIDA DE CONTINUIDAD (ROCHE ECUADOR S.A.):
+  perfil: provincia=PICHINCHA | adjudicaciones=116 (competitivas=28, catálogo=58.6 %) | CPC=21 | ELEGIBLE bajo Fase 2.2: no
+  K-Medoids (PAM) k=3: silueta=0.3194 | grupos=3 | ARI vs modalidad=-0.036 | entropía=0.921 | cobertura=100.0 % | línea base modalidad=0.0864 | PASA las 4 reglas
+ grupo  tamano   pct  cpc_jaccard4  sim_tfidf  afinidad_comprador  presupuesto_medio_usd         modalidad_dominante                              ocid_medoide
+     0     976 32.53        0.0049     0.0219              0.0298              201965.01 Subasta Inversa Electrónica   ocds-5wno2w-SIE-SEDMQ-2024-00005-369703
+     1     510 17.00        0.3333     0.1501              0.2545               90568.32 Subasta Inversa Electrónica  ocds-5wno2w-SIE-HBFVB-2024-00018-1163409
+     2    1514 50.47        0.0000     0.0205              0.0097              167486.98 Subasta Inversa Electrónica ocds-5wno2w-SIE-DD09D20SS-2024-016-131240
+MODELO GUARDADO: C:\Users\JuanR\proyecto-ia-sercop\resultados\modelo_ganador.pkl
+  contiene: objeto entrenado, 6 variables numéricas, límites de winsorización p1/p99, media y escala del StandardScaler, categorías del one-hot, pesos de la Gower, medoides e IsolationForest global y por grupo
+TIEMPOS: comparar_modelos.py = 7.7 min (461 s) para 3 proveedores x 6 algoritmos x k=3..10 + corrida de continuidad
+PROBLEMAS/HALLAZGOS:
+  - IsolationForest ajustado POR GRUPO con contamination=0.05 devuelve ~5 % de atípicos en todos los grupos por construcción (la contaminación es un parámetro, no una medición). La columna pct_atipicos_modelo_global (un solo bosque sobre toda la muestra) sí discrimina y es la que conviene leer
+=== FIN REPORTE ===

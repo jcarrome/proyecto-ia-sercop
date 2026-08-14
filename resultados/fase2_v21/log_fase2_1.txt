@@ -1,0 +1,159 @@
+﻿[comparar] perfiles=12,220  procesos activos=7,637
+[comparar] muestra usada por TODOS los algoritmos: 3,000 (muestreado=sí, seed=42)
+
+[comparar] proveedores ELEGIBLES: 10 de 12,220
+[comparar] proveedores de referencia (anonimizados):
+  P1: provincia=LOJA | adjudicaciones competitivas=208 | catálogo=0.0 % | total histórico=208 | CPC históricos=2 | monto promedio=335 USD
+  P2: provincia=GUAYAS | adjudicaciones competitivas=79 | catálogo=0.0 % | total histórico=79 | CPC históricos=39 | monto promedio=36,185 USD
+  P3: provincia=PICHINCHA | adjudicaciones competitivas=75 | catálogo=0.0 % | total histórico=75 | CPC históricos=8 | monto promedio=30,684 USD
+
+[comparar] === P1 (LOJA) ===
+    matriz de interacción lista (cpc_jaccard4>0 en 0.7 % (media 0.0067), modalidad_afinidad media=0.065, sim_tfidf media=0.0187, provincias desconocidas=94)
+    winsorización p1/p99: {'distancia_km': 15, 'cpc_jaccard4': 22, 'modalidad_afinidad': 0, 'sim_tfidf': 6, 'desviacion_presupuesto': 60, 'log_presupuesto': 60, 'actividad_cpc_comprador': 24}
+    Gower ponderada lista (3000, 3000) en 4.4 s (pesos: 1.0 x7 numéricas, 0.333 categórica)
+    [!] P1: 'cpc_jaccard4' es casi constante (99.3 % de los procesos comparten el valor 0); su aporte a Gower es despreciable
+    [!] P1: 'modalidad_afinidad' es una RE-CODIFICACIÓN de modalidad_norm (eta^2=1.000, 2 valores distintos): aporta peso 1.0 a la distancia pero la información es la misma de la categórica, que pesa 1/3. En la práctica modalidad_norm pesa más de lo que indica PESOS_GOWER
+    [!] P1: 'desviacion_presupuesto' y 'log_presupuesto' son REDUNDANTES (r=1.0000). Gower les da peso 1.0 a cada una, así que esa dimensión pesa el doble que las demás
+    líneas base -> modalidad trivial=0.2414 | aleatoria k=3..10: [-0.0071, -0.0117, -0.0111, -0.0194, -0.0215, -0.0273, -0.0338, -0.0389]
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P1 completado en 130.8 s
+
+[comparar] === P2 (GUAYAS) ===
+    matriz de interacción lista (cpc_jaccard4>0 en 6.6 % (media 0.0330), modalidad_afinidad media=0.562, sim_tfidf media=0.0278, provincias desconocidas=94)
+    winsorización p1/p99: {'distancia_km': 15, 'cpc_jaccard4': 0, 'modalidad_afinidad': 0, 'sim_tfidf': 28, 'desviacion_presupuesto': 60, 'log_presupuesto': 60, 'actividad_cpc_comprador': 24}
+    Gower ponderada lista (3000, 3000) en 3.6 s (pesos: 1.0 x7 numéricas, 0.333 categórica)
+    [!] P2: 'modalidad_afinidad' es una RE-CODIFICACIÓN de modalidad_norm (eta^2=1.000, 2 valores distintos): aporta peso 1.0 a la distancia pero la información es la misma de la categórica, que pesa 1/3. En la práctica modalidad_norm pesa más de lo que indica PESOS_GOWER
+    [!] P2: 'desviacion_presupuesto' y 'log_presupuesto' son REDUNDANTES (r=1.0000). Gower les da peso 1.0 a cada una, así que esa dimensión pesa el doble que las demás
+    líneas base -> modalidad trivial=0.3854 | aleatoria k=3..10: [-0.0036, -0.0109, -0.0193, -0.0244, -0.0307, -0.027, -0.029, -0.0441]
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P2 completado en 112.1 s
+
+[comparar] === P3 (PICHINCHA) ===
+    matriz de interacción lista (cpc_jaccard4>0 en 11.4 % (media 0.0279), modalidad_afinidad media=0.562, sim_tfidf media=0.0550, provincias desconocidas=94)
+    winsorización p1/p99: {'distancia_km': 15, 'cpc_jaccard4': 0, 'modalidad_afinidad': 0, 'sim_tfidf': 1, 'desviacion_presupuesto': 60, 'log_presupuesto': 60, 'actividad_cpc_comprador': 24}
+    Gower ponderada lista (3000, 3000) en 3.7 s (pesos: 1.0 x7 numéricas, 0.333 categórica)
+    [!] P3: 'modalidad_afinidad' es una RE-CODIFICACIÓN de modalidad_norm (eta^2=1.000, 2 valores distintos): aporta peso 1.0 a la distancia pero la información es la misma de la categórica, que pesa 1/3. En la práctica modalidad_norm pesa más de lo que indica PESOS_GOWER
+    [!] P3: 'desviacion_presupuesto' y 'log_presupuesto' son REDUNDANTES (r=1.0000). Gower les da peso 1.0 a cada una, así que esa dimensión pesa el doble que las demás
+    líneas base -> modalidad trivial=0.3460 | aleatoria k=3..10: [-0.004, -0.0153, -0.0212, -0.0237, -0.0257, -0.0326, -0.0305, -0.0433]
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P3 completado en 112.9 s
+    [!] IsolationForest ajustado POR GRUPO con contamination=0.05 devuelve ~5 % de atípicos en todos los grupos por construcción (la contaminación es un parámetro, no una medición). La columna pct_atipicos_modelo_global (un solo bosque sobre toda la muestra) sí discrimina y es la que conviene leer
+
+[comparar] archivos generados:
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P1.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P2.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P3.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\candidatos_evaluados.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_modelos.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\lineas_base.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\eta2_variables.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_detalle_k.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_barras.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\perfil_centroides_ganador.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\atipicos_resumen.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\etiquetas_ganador.npz
+
+
+=== REPORTE FASE 2.1 — PARA EL DISEÑADOR ===
+ESTADO: OK con incidencias
+PROVEEDORES ÚNICOS (24+25): 12,220 | ELEGIBLES tras los criterios de la Fase 2.1: 10
+PROVEEDORES DE REFERENCIA (anonimizados):
+  P1: provincia=LOJA | adjudicaciones competitivas=208 | catálogo=0.0 % | total histórico=208
+  P2: provincia=GUAYAS | adjudicaciones competitivas=79 | catálogo=0.0 % | total histórico=79
+  P3: provincia=PICHINCHA | adjudicaciones competitivas=75 | catálogo=0.0 % | total histórico=75
+PROCESOS ACTIVOS: 3,000 (muestreados: sí) | MODALIDAD_NORM: Subasta Inversa Electrónica=1687, Menor Cuantía=443, Contratacion directa=213, Cotización=196, Otros=159, Bienes y Servicios únicos=113, Comunicación Social – Contratación Directa=76, Contratos entre Entidades Públicas o sus subsidiarias=59, Licitación de Seguros=54
+VARIABLES REPARADAS (por proveedor):
+  P1: cpc_jaccard4>0 en 0.7 % (media 0.0067) | modalidad_afinidad media=0.065 | sim_tfidf media=0.0187 | recortes winsor p1/p99=187
+  P2: cpc_jaccard4>0 en 6.6 % (media 0.0330) | modalidad_afinidad media=0.562 | sim_tfidf media=0.0278 | recortes winsor p1/p99=187
+  P3: cpc_jaccard4>0 en 11.4 % (media 0.0279) | modalidad_afinidad media=0.562 | sim_tfidf media=0.0550 | recortes winsor p1/p99=160
+DEPENDENCIA DE LAS NUMÉRICAS RESPECTO DE modalidad_norm (eta^2; 1.000 = re-codificación de la categórica):
+  distancia_km               P1=0.008 | P2=0.009 | P3=0.010
+  cpc_jaccard4               P1=0.004 | P2=0.049 | P3=0.086
+  modalidad_afinidad         P1=1.000 | P2=1.000 | P3=1.000
+  sim_tfidf                  P1=0.022 | P2=0.046 | P3=0.061
+  desviacion_presupuesto     P1=0.270 | P2=0.270 | P3=0.270
+  log_presupuesto            P1=0.270 | P2=0.270 | P3=0.270
+  actividad_cpc_comprador    P1=0.011 | P2=0.011 | P3=0.011
+NUMÉRICAS REDUNDANTES ENTRE SÍ (|r| >= 0.999):
+  desviacion_presupuesto ~ log_presupuesto: r=1.0000 (esa dimensión pesa el doble en la Gower)
+LÍNEAS BASE DE CONTROL (silueta-Gower ponderada):
+  P1: modalidad trivial=0.2414 | aleatoria (k=3..10)=-0.0389..-0.0071
+  P2: modalidad trivial=0.3854 | aleatoria (k=3..10)=-0.0441..-0.0036
+  P3: modalidad trivial=0.3460 | aleatoria (k=3..10)=-0.0433..-0.0040
+TABLA COMPARATIVA (silueta-Gower ponderada promedio P1-P3 | mejor k | DB | CH | ARI-mod | ARI-cuartil | entropía | cobertura | estado):
+  K-Prototypes           |   0.3555 | k=4    | DB=  1.207 | CH=  1018.5 | ARIm= 0.305 | ARIc= 0.299 | H=0.850 | cob=100.0% | apto
+  K-Means                |   0.3680 | k=4    | DB=  1.202 | CH=  1020.5 | ARIm= 0.341 | ARIc= 0.260 | H=0.844 | cob=100.0% | apto
+  Jerárquico (average)   |   0.5032 | k=5    | DB=  1.002 | CH=   424.3 | ARIm= 0.413 | ARIc= 0.010 | H=0.430 | cob=100.0% | DESCALIFICADO
+      motivo: P1: entropía de tamaños 0.155 < 0.5
+  K-Medoids (PAM)        |   0.4421 | k=3    | DB=  1.487 | CH=   896.1 | ARIm= 0.380 | ARIc= 0.011 | H=0.823 | cob=100.0% | apto
+  DBSCAN/HDBSCAN         |   0.5421 | k=2    | DB=  1.157 | CH=   937.4 | ARIm= 0.389 | ARIc= 0.011 | H=0.672 | cob= 99.5% | DESCALIFICADO
+      motivo: P1: entropía de tamaños 0.347 < 0.5
+  Gaussian Mixture       |   0.3330 | k=4    | DB=  1.925 | CH=   659.9 | ARIm= 0.585 | ARIc= 0.030 | H=0.816 | cob=100.0% | DESCALIFICADO
+      motivo: P1: no supera la línea base modalidad (0.1928 <= 0.2414)
+  (ARIm/ARIc = Adjusted Rand Index contra modalidad_norm y contra el cuartil de log_presupuesto; >0.90 descalifica por copia de columna)
+GANADOR: K-Medoids (PAM), k=3, silueta=0.4421 | SEGUNDO: K-Means, silueta=0.3680
+DESCALIFICACIONES: 39 de 42 configuraciones (algoritmo x k) incumplen alguna regla; detalle en candidatos_evaluados.csv
+DBSCAN/HDBSCAN:
+  P1 DBSCAN eps=p5=0.0109: grupos=12, ruido=86.1 %, n/d (descartada) 
+  P1 DBSCAN eps=p10=0.0128: grupos=11, ruido=78.0 %, n/d (descartada) 
+  P1 DBSCAN eps=p15=0.0143: grupos=9, ruido=72.5 %, n/d (descartada) 
+  P1 DBSCAN eps=p20=0.0159: grupos=13, ruido=65.7 %, n/d (descartada) 
+  P1 HDBSCAN(paquete hdbscan) mcs=30: grupos=2, ruido=0.1 %, silueta=0.5338 
+  P1 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=2, ruido=0.1 %, silueta=0.5338)
+  P2 DBSCAN eps=p5=0.0062: grupos=12, ruido=88.6 %, n/d (descartada) 
+  P2 DBSCAN eps=p10=0.0075: grupos=13, ruido=78.0 %, n/d (descartada) 
+  P2 DBSCAN eps=p15=0.0086: grupos=10, ruido=73.9 %, n/d (descartada) 
+  P2 DBSCAN eps=p20=0.0099: grupos=10, ruido=68.2 %, n/d (descartada) 
+  P2 HDBSCAN(paquete hdbscan) mcs=30: grupos=3, ruido=0.7 %, silueta=0.5579 
+  P2 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=3, ruido=0.7 %, silueta=0.5579)
+  P3 DBSCAN eps=p5=0.0075: grupos=10, ruido=87.9 %, n/d (descartada) 
+  P3 DBSCAN eps=p10=0.0091: grupos=15, ruido=79.7 %, n/d (descartada) 
+  P3 DBSCAN eps=p15=0.0106: grupos=17, ruido=71.6 %, n/d (descartada) 
+  P3 DBSCAN eps=p20=0.0119: grupos=14, ruido=65.8 %, n/d (descartada) 
+  P3 HDBSCAN(paquete hdbscan) mcs=30: grupos=3, ruido=0.7 %, silueta=0.5345 
+  P3 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=3, ruido=0.7 %, silueta=0.5345)
+GMM:
+  P1: mejor k por BIC=10 (BIC=-385,080) | mejor k por silueta=3 (0.2521)
+  P2: mejor k por BIC=10 (BIC=-387,250) | mejor k por silueta=4 (0.4112)
+  P3: mejor k por BIC=9 (BIC=-366,633) | mejor k por silueta=4 (0.3949)
+PERFIL DE CENTROIDES DEL GANADOR (K-Medoids (PAM), k=3, proveedor P2):
+ grupo  tamano  pct  distancia_km  cpc_jaccard4  modalidad_afinidad  sim_tfidf  desviacion_presupuesto  presupuesto_medio_usd  actividad_cpc_comprador         modalidad_dominante
+     0    1500 50.0      199.0329        0.0013               1.000     0.0114                  0.2200              112345.01                   3.5653 Subasta Inversa Electrónica
+     1    1308 43.6      201.3841        0.0008               0.000     0.0087                  0.4029              241583.19                   3.4717               Menor Cuantía
+     2     192  6.4      173.5455        0.5000               0.974     0.2847                 -0.0382               64451.28                   1.9167 Subasta Inversa Electrónica
+ATÍPICOS (ganador):
+  grupo 0 (n=1500): intra-grupo=5.0 % | modelo global=0.5 % 
+  grupo 1 (n=1308): intra-grupo=5.0 % | modelo global=6.9 % 
+  grupo 2 (n=192): intra-grupo=5.2 % | modelo global=27.6 % 
+TIEMPOS: comparar_modelos.py = 6.0 min (357 s) para 3 proveedores x 6 algoritmos x k=3..10
+PROBLEMAS/HALLAZGOS:
+  - P1: 'cpc_jaccard4' es casi constante (99.3 % de los procesos comparten el valor 0); su aporte a Gower es despreciable
+  - P1: 'modalidad_afinidad' es una RE-CODIFICACIÓN de modalidad_norm (eta^2=1.000, 2 valores distintos): aporta peso 1.0 a la distancia pero la información es la misma de la categórica, que pesa 1/3. En la práctica modalidad_norm pesa más de lo que indica PESOS_GOWER
+  - P1: 'desviacion_presupuesto' y 'log_presupuesto' son REDUNDANTES (r=1.0000). Gower les da peso 1.0 a cada una, así que esa dimensión pesa el doble que las demás
+  - P2: 'modalidad_afinidad' es una RE-CODIFICACIÓN de modalidad_norm (eta^2=1.000, 2 valores distintos): aporta peso 1.0 a la distancia pero la información es la misma de la categórica, que pesa 1/3. En la práctica modalidad_norm pesa más de lo que indica PESOS_GOWER
+  - P2: 'desviacion_presupuesto' y 'log_presupuesto' son REDUNDANTES (r=1.0000). Gower les da peso 1.0 a cada una, así que esa dimensión pesa el doble que las demás
+  - P3: 'modalidad_afinidad' es una RE-CODIFICACIÓN de modalidad_norm (eta^2=1.000, 2 valores distintos): aporta peso 1.0 a la distancia pero la información es la misma de la categórica, que pesa 1/3. En la práctica modalidad_norm pesa más de lo que indica PESOS_GOWER
+  - P3: 'desviacion_presupuesto' y 'log_presupuesto' son REDUNDANTES (r=1.0000). Gower les da peso 1.0 a cada una, así que esa dimensión pesa el doble que las demás
+  - IsolationForest ajustado POR GRUPO con contamination=0.05 devuelve ~5 % de atípicos en todos los grupos por construcción (la contaminación es un parámetro, no una medición). La columna pct_atipicos_modelo_global (un solo bosque sobre toda la muestra) sí discrimina y es la que conviene leer
+=== FIN REPORTE ===

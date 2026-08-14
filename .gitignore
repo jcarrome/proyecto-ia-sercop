@@ -1,0 +1,28 @@
+# --- entorno virtual (776 MB, se reconstruye con requirements.txt) ---
+.venv/
+venv/
+env/
+
+# --- datos crudos OCDS (56 MB, se descargan del portal del SERCOP) ---
+data/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- Streamlit ---
+.streamlit/secrets.toml
+
+# --- sistema operativo / editores ---
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# --- temporales ---
+*.tmp
+*.log
+!resultados/log_fase2_2.txt

@@ -1,0 +1,3 @@
+Algoritmo,k usado/obtenido,Silueta (Gower),Davies-Bouldin,Calinski-Harabasz,Cobertura,ARI,ARI desv.,n evaluados (silueta),Nota
+LÍNEA BASE: aleatoria,5,-0.008793499320745468,110.98766403814855,0.6193655536926811,100.0,5.21636223394248e-05,0.0001432317244974249,13848,k=5 (igual que K-Means); semilla 42
+LÍNEA BASE: por modalidad,19,0.6054539680480957,1.8181615995244595,224.5657082547778,100.0,1.0,0.0,13848,19 modalidades tras colapsar Catálogo Electrónico

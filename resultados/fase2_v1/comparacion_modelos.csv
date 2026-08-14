@@ -1,0 +1,25 @@
+﻿algoritmo,proveedor,mejor_k,silueta_gower,davies_bouldin,calinski_harabasz,ari_vs_modalidad,notas,ganador_portafolio
+K-Prototypes,P1,4,0.118,1.3465,703.1,0.0252,gamma=0.5000 | ruido=0.0 % | 14.8 s,False
+K-Prototypes,P2,3,0.2147,1.238,708.5,0.0402,gamma=0.5000 | ruido=0.0 % | 12.6 s,False
+K-Prototypes,P3,3,0.2169,1.1825,791.7,0.046,gamma=0.5000 | ruido=0.0 % | 18.3 s,False
+K-Means,P1,3,0.2198,1.0687,807.7,0.052, | ruido=0.0 % | 1.4 s,False
+K-Means,P2,3,0.2413,0.9836,880.4,0.0573, | ruido=0.0 % | 0.0 s,False
+K-Means,P3,3,0.2202,1.1807,792.1,0.0525, | ruido=0.0 % | 0.0 s,False
+Jerárquico (average),P1,10,0.6201,1.9411,223.3,0.985, | ruido=0.0 % | 0.3 s,False
+Jerárquico (average),P2,10,0.6601,1.7633,234.9,0.985, | ruido=0.0 % | 0.3 s,False
+Jerárquico (average),P3,3,0.3916,0.5268,278.9,-0.0077, | ruido=0.0 % | 0.3 s,False
+K-Medoids (PAM),P1,5,0.5398,2.6113,165.6,0.9407,FasterPAM | ruido=0.0 % | 0.1 s,False
+K-Medoids (PAM),P2,5,0.5741,2.3509,162.6,0.9337,FasterPAM | ruido=0.0 % | 0.1 s,False
+K-Medoids (PAM),P3,4,0.4824,2.2863,229.2,0.8887,FasterPAM | ruido=0.0 % | 0.1 s,False
+DBSCAN/HDBSCAN,P1,9,0.6445,2.2856,126.8,1.0,HDBSCAN(paquete hdbscan) mcs=30 | ruido=0.6 % | 0.0 s,True
+DBSCAN/HDBSCAN,P2,9,0.6872,2.08,124.6,1.0,HDBSCAN(paquete hdbscan) mcs=30 | ruido=0.5 % | 0.0 s,True
+DBSCAN/HDBSCAN,P3,9,0.63,2.2687,124.2,1.0,HDBSCAN(paquete hdbscan) mcs=30 | ruido=1.6 % | 0.0 s,True
+Gaussian Mixture,P1,6,0.4068,2.0739,229.7,0.6376,"BIC=-289,872 | ruido=0.0 % | 0.1 s",False
+Gaussian Mixture,P2,9,0.6069,1.9145,275.0,0.9407,"BIC=-339,713 | ruido=0.0 % | 0.1 s",False
+Gaussian Mixture,P3,6,0.4693,2.1673,262.3,0.8262,"BIC=-314,366 | ruido=0.0 % | 0.1 s",False
+K-Prototypes,PROMEDIO_P1_P3,3,0.1711,1.2536,675.5,0.0419,,False
+K-Means,PROMEDIO_P1_P3,3,0.2271,1.0777,826.7,0.0539,,False
+Jerárquico (average),PROMEDIO_P1_P3,10,0.5566,1.817,209.9,0.8045,,False
+K-Medoids (PAM),PROMEDIO_P1_P3,4,0.507,2.1816,228.1,0.8927,,False
+DBSCAN/HDBSCAN,PROMEDIO_P1_P3,9,0.6539,2.2114,125.2,1.0,P1:HDBSCAN(paquete hdbscan) mcs=30 ruido=0.6% ; P2:HDBSCAN(paquete hdbscan) mcs=30 ruido=0.5% ; P3:HDBSCAN(paquete hdbscan) mcs=30 ruido=1.6%,True
+Gaussian Mixture,PROMEDIO_P1_P3,6,0.4276,2.023,274.0,0.6895,,False

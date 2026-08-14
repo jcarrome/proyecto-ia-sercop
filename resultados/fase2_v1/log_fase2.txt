@@ -1,0 +1,129 @@
+﻿[comparar] perfiles=12,220  procesos activos=7,637
+[comparar] muestra usada por TODOS los algoritmos: 3,000 (muestreado=sí, seed=42)
+
+[comparar] proveedores de referencia (anonimizados):
+  P1: 30721 adjudicaciones | provincia=PICHINCHA | CPC históricos=313 | monto promedio=157 USD
+  P2: 1974 adjudicaciones | provincia=PICHINCHA | CPC históricos=48 | monto promedio=1,443 USD
+  P3: 1775 adjudicaciones | provincia=PICHINCHA | CPC históricos=42 | monto promedio=1,033 USD
+
+[comparar] === P1 ===
+    matriz de interacción lista (cpc_match=0.1 %, sim_tfidf media=0.040, provincias desconocidas=94)
+    Gower lista (3000, 3000) en 2.6 s
+    [!] P1: 'cpc_match' es casi constante (99.9 % de los procesos comparten el valor 0); su aporte a Gower es despreciable
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P1 completado en 164.2 s
+
+[comparar] === P2 ===
+    matriz de interacción lista (cpc_match=0.1 %, sim_tfidf media=0.004, provincias desconocidas=94)
+    Gower lista (3000, 3000) en 3.4 s
+    [!] P2: 'cpc_match' es casi constante (99.9 % de los procesos comparten el valor 0); su aporte a Gower es despreciable
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P2 completado en 164.9 s
+
+[comparar] === P3 ===
+    matriz de interacción lista (cpc_match=1.1 %, sim_tfidf media=0.041, provincias desconocidas=94)
+    Gower lista (3000, 3000) en 4.1 s
+    [!] P3: 'cpc_match' es casi constante (98.9 % de los procesos comparten el valor 0); su aporte a Gower es despreciable
+    k=3 listo
+    k=4 listo
+    k=5 listo
+    k=6 listo
+    k=7 listo
+    k=8 listo
+    k=9 listo
+    k=10 listo
+    P3 completado en 193.0 s
+    [!] IsolationForest ajustado POR GRUPO con contamination=0.05 devuelve ~5 % de atípicos en todos los grupos por construcción (la contaminación es un parámetro, no una medición). La columna pct_atipicos_modelo_global (un solo bosque sobre toda la muestra) sí discrimina y es la que conviene leer
+    [!] El ganador (DBSCAN/HDBSCAN) reproduce casi exactamente la columna categórica modalidad_norm (ARI=1.000 en P2): los grupos NO son perfiles de compatibilidad, son las modalidades de contratación. Su silueta alta es un artefacto de la métrica, no evidencia de estructura útil
+
+[comparar] archivos generados:
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P1.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P2.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\curvas_P3.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_modelos.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_detalle_k.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\comparacion_barras.png
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\perfil_centroides_ganador.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\atipicos_resumen.csv
+  C:\Users\JuanR\proyecto-ia-sercop\resultados\etiquetas_ganador.npz
+
+
+=== REPORTE FASE 2 — PARA EL DISEÑADOR ===
+ESTADO: OK con incidencias
+PROVEEDORES ÚNICOS (24+25): 12,220
+PROCESOS ACTIVOS: 3,000 (muestreados: sí) | MODALIDAD_NORM: Subasta Inversa Electrónica=1687, Menor Cuantía=443, Contratacion directa=213, Cotización=196, Otros=159, Bienes y Servicios únicos=113, Comunicación Social – Contratación Directa=76, Contratos entre Entidades Públicas o sus subsidiarias=59, Licitación de Seguros=54
+TABLA COMPARATIVA (por algoritmo: silueta-Gower promedio P1-P3 | mejor k | DB | CH | ARI vs modalidad | notas):
+  K-Prototypes           |   0.1711 | k=3    | DB=  1.254 | CH=    675.5 | ARI= 0.042 | 
+  K-Means                |   0.2271 | k=3    | DB=  1.078 | CH=    826.7 | ARI= 0.054 | 
+  Jerárquico (average)   |   0.5566 | k=10   | DB=  1.817 | CH=    209.9 | ARI= 0.804 | 
+  K-Medoids (PAM)        |   0.5070 | k=4    | DB=  2.182 | CH=    228.1 | ARI= 0.893 | 
+  DBSCAN/HDBSCAN         |   0.6539 | k=9    | DB=  2.211 | CH=    125.2 | ARI= 1.000 | P1:HDBSCAN(paquete hdbscan) mcs=30 ruido=0.6% ; P2:HDBSCAN(paquete hdb
+  Gaussian Mixture       |   0.4276 | k=6    | DB=  2.023 | CH=    274.0 | ARI= 0.689 | 
+  (ARI = Adjusted Rand Index de la partición contra la columna modalidad_norm; ARI~1 significa 'el modelo sólo recupera esa columna')
+GANADOR: DBSCAN/HDBSCAN, k=9, silueta=0.6539 | SEGUNDO: Jerárquico (average), silueta=0.5566
+DBSCAN/HDBSCAN:
+  P1 DBSCAN eps=p5=0.0075: grupos=30, ruido=79.7 %, n/d (descartada) 
+  P1 DBSCAN eps=p10=0.0084: grupos=24, ruido=70.1 %, n/d (descartada) 
+  P1 DBSCAN eps=p15=0.0089: grupos=19, ruido=63.9 %, n/d (descartada) 
+  P1 DBSCAN eps=p20=0.0095: grupos=6, ruido=59.3 %, n/d (descartada) 
+  P1 HDBSCAN(paquete hdbscan) mcs=30: grupos=9, ruido=0.6 %, silueta=0.6445 
+  P1 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=9, ruido=0.6 %, silueta=0.6445)
+  P2 DBSCAN eps=p5=0.0038: grupos=18, ruido=85.6 %, n/d (descartada) 
+  P2 DBSCAN eps=p10=0.0044: grupos=25, ruido=74.8 %, n/d (descartada) 
+  P2 DBSCAN eps=p15=0.0050: grupos=16, ruido=67.3 %, n/d (descartada) 
+  P2 DBSCAN eps=p20=0.0054: grupos=12, ruido=62.1 %, n/d (descartada) 
+  P2 HDBSCAN(paquete hdbscan) mcs=30: grupos=9, ruido=0.5 %, silueta=0.6872 
+  P2 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=9, ruido=0.5 %, silueta=0.6872)
+  P3 DBSCAN eps=p5=0.0068: grupos=16, ruido=85.6 %, n/d (descartada) 
+  P3 DBSCAN eps=p10=0.0080: grupos=18, ruido=77.8 %, n/d (descartada) 
+  P3 DBSCAN eps=p15=0.0090: grupos=17, ruido=70.4 %, n/d (descartada) 
+  P3 DBSCAN eps=p20=0.0099: grupos=13, ruido=63.1 %, n/d (descartada) 
+  P3 HDBSCAN(paquete hdbscan) mcs=30: grupos=9, ruido=1.6 %, silueta=0.6300 
+  P3 -> USADA: HDBSCAN(paquete hdbscan) mcs=30 (grupos=9, ruido=1.6 %, silueta=0.6300)
+GMM:
+  P1: mejor k por BIC=10 (BIC=-319,448) | mejor k por silueta=6 (0.4068)
+  P2: mejor k por BIC=10 (BIC=-353,098) | mejor k por silueta=9 (0.6069)
+  P3: mejor k por BIC=9 (BIC=-336,050) | mejor k por silueta=6 (0.4693)
+PERFIL DE CENTROIDES DEL GANADOR (DBSCAN/HDBSCAN, k=9, proveedor P2):
+grupo  tamano   pct  distancia_km  cpc_match  sim_tfidf  desviacion_presupuesto  presupuesto_medio_usd  actividad_cpc_comprador                                   modalidad_dominante
+    7    1681 56.03      185.9309        0.0     0.0034                  3.4112              107185.56                   3.3801                           Subasta Inversa Electrónica
+    0     443 14.77      191.4649        0.0     0.0038                  3.3652               62157.04                   3.9300                                         Menor Cuantía
+    3     213  7.10      206.1323        0.0     0.0038                  2.5669               28125.34                   1.5681                                  Contratacion directa
+    1     195  6.50      155.2213        0.0     0.0038                  5.3384              356775.88                   4.3692                                            Cotización
+    5     159  5.30      195.2842        0.0     0.0037                  5.1029             1035500.59                   2.8553                                                 Otros
+    8     111  3.70      133.7980        0.0     0.0026                  2.8931              112815.20                   2.8378                             Bienes y Servicios únicos
+    4      72  2.40      178.5603        0.0     0.0017                  1.3875               23985.71                   4.4861            Comunicación Social – Contratación Directa
+    6      58  1.93      151.2814        0.0     0.0017                  3.4183              112861.57                   1.4483 Contratos entre Entidades Públicas o sus subsidiarias
+ATÍPICOS (ganador):
+  grupo ruido (n=14): intra-grupo=7.1 % | modelo global=85.7 % 
+  grupo 0 (n=443): intra-grupo=5.2 % | modelo global=0.9 % 
+  grupo 1 (n=195): intra-grupo=5.1 % | modelo global=2.0 % 
+  grupo 2 (n=54): intra-grupo=5.6 % | modelo global=11.1 % 
+  grupo 3 (n=213): intra-grupo=5.2 % | modelo global=3.3 % 
+  grupo 4 (n=72): intra-grupo=5.6 % | modelo global=45.8 % 
+  grupo 5 (n=159): intra-grupo=5.0 % | modelo global=15.7 % 
+  grupo 6 (n=58): intra-grupo=5.2 % | modelo global=70.7 % 
+  grupo 7 (n=1681): intra-grupo=5.0 % | modelo global=0.3 % 
+  grupo 8 (n=111): intra-grupo=5.4 % | modelo global=11.7 % 
+TIEMPOS: comparar_modelos.py = 8.7 min (524 s) para 3 proveedores x 6 algoritmos x k=3..10
+PROBLEMAS/HALLAZGOS:
+  - P1: 'cpc_match' es casi constante (99.9 % de los procesos comparten el valor 0); su aporte a Gower es despreciable
+  - P2: 'cpc_match' es casi constante (99.9 % de los procesos comparten el valor 0); su aporte a Gower es despreciable
+  - P3: 'cpc_match' es casi constante (98.9 % de los procesos comparten el valor 0); su aporte a Gower es despreciable
+  - IsolationForest ajustado POR GRUPO con contamination=0.05 devuelve ~5 % de atípicos en todos los grupos por construcción (la contaminación es un parámetro, no una medición). La columna pct_atipicos_modelo_global (un solo bosque sobre toda la muestra) sí discrimina y es la que conviene leer
+  - El ganador (DBSCAN/HDBSCAN) reproduce casi exactamente la columna categórica modalidad_norm (ARI=1.000 en P2): los grupos NO son perfiles de compatibilidad, son las modalidades de contratación. Su silueta alta es un artefacto de la métrica, no evidencia de estructura útil
+=== FIN REPORTE ===

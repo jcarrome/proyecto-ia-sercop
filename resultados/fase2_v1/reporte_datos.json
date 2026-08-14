@@ -1,0 +1,500 @@
+{
+ "inventario": {
+  "seed": 42,
+  "lineas_leidas": 90076,
+  "ocid_unicos": 90076,
+  "duplicados_colapsados": 0,
+  "status": {
+   "complete": 72846,
+   "active": 14660,
+   "(sin dato)": 2570
+  },
+  "activos_tender_status": 14660,
+  "completos": 72846,
+  "proveedor_consultante": {
+   "id": "EC-RUC-1790475689001-5192",
+   "nombre": "ROCHE ECUADOR S.A.",
+   "procesos_historicos": 87,
+   "provincia": "PICHINCHA",
+   "cpc_distintos": 24,
+   "mediana_monto_historico": 34788.0,
+   "docs_corpus": 87
+  },
+  "descartes_por_falta_de_datos": {
+   "sin_provincia_comprador": 304,
+   "sin_items": 508
+  },
+  "matriz": {
+   "filas": 13848,
+   "columnas_semanticas": 6,
+   "columnas_codificadas_onehot": 24,
+   "modalidades_distintas": 19
+  },
+  "gower_n2": {
+   "celdas": 191767104,
+   "float64_GB": 1.429,
+   "float32_GB": 0.714,
+   "condensada_float64_GB": 0.714
+  },
+  "tfidf_terminos": 5000,
+  "modalidades_top": {
+   "Subasta Inversa Electrónica": 7990,
+   "Menor Cuantía": 1885,
+   "Contratacion directa": 981,
+   "Cotización": 825,
+   "Bienes y Servicios únicos": 549,
+   "Contratos entre Entidades Públicas o sus subsidiarias": 329,
+   "Comunicación Social – Contratación Directa": 317,
+   "Licitación de Seguros": 282,
+   "Repuestos o Accesorios": 183,
+   "Licitación": 178,
+   "Obra artística, científica o literaria": 138,
+   "Lista corta": 130,
+   "Transporte de correo interno o internacional": 19,
+   "Asesoría y Patrocinio Jurídico": 14,
+   "Concurso publico": 12
+  },
+  "origen_items": {
+   "tender.items": 13824,
+   "awards.items": 24
+  },
+  "origen_monto": {
+   "tender.lots": 7990,
+   "tender.value": 5858
+  },
+  "segundos": 27.6
+ },
+ "balance": [
+  {
+   "Modelo": "K-Medoids (PAM)",
+   "Grupos": 10,
+   "Mayor (%)": 21.6,
+   "Dos mayores (%)": 42.9,
+   "Menor (n)": 351,
+   "Grupos <1%": 0,
+   "Entropía norm.": 0.884
+  },
+  {
+   "Modelo": "DBSCAN",
+   "Grupos": 17,
+   "Mayor (%)": 24.4,
+   "Dos mayores (%)": 42.0,
+   "Menor (n)": 20,
+   "Grupos <1%": 5,
+   "Entropía norm.": 0.778
+  },
+  {
+   "Modelo": "GMM",
+   "Grupos": 10,
+   "Mayor (%)": 36.5,
+   "Dos mayores (%)": 51.7,
+   "Menor (n)": 49,
+   "Grupos <1%": 3,
+   "Entropía norm.": 0.785
+  },
+  {
+   "Modelo": "Jerárquico (promedio)",
+   "Grupos": 3,
+   "Mayor (%)": 99.2,
+   "Dos mayores (%)": 99.7,
+   "Menor (n)": 48,
+   "Grupos <1%": 2,
+   "Entropía norm.": 0.049
+  },
+  {
+   "Modelo": "K-Means",
+   "Grupos": 5,
+   "Mayor (%)": 53.9,
+   "Dos mayores (%)": 82.9,
+   "Menor (n)": 49,
+   "Grupos <1%": 2,
+   "Entropía norm.": 0.648
+  },
+  {
+   "Modelo": "K-Prototypes",
+   "Grupos": 3,
+   "Mayor (%)": 52.3,
+   "Dos mayores (%)": 83.6,
+   "Menor (n)": 2268,
+   "Grupos <1%": 0,
+   "Entropía norm.": 0.909
+  }
+ ],
+ "tamanos_jerarquico": {
+  "0": 48,
+  "1": 68,
+  "2": 13732
+ },
+ "tabla6": [
+  {
+   "Algoritmo": "K-Prototypes",
+   "k usado/obtenido": 3,
+   "Silueta (Gower)": 0.2022366523742675,
+   "Davies-Bouldin": 1.4750806976697437,
+   "Calinski-Harabasz": 4252.909854619917,
+   "Cobertura": 100.0,
+   "ARI": 0.9881175370472002,
+   "ARI desv.": 0.0052425280108264,
+   "n evaluados (silueta)": 13848,
+   "Nota": "gamma auto=0.5000; init=Cao"
+  },
+  {
+   "Algoritmo": "K-Means",
+   "k usado/obtenido": 5,
+   "Silueta (Gower)": 0.2155517339706421,
+   "Davies-Bouldin": 1.0099803562510232,
+   "Calinski-Harabasz": 3902.495386909136,
+   "Cobertura": 100.0,
+   "ARI": 0.7375911930747244,
+   "ARI desv.": 0.2217429258382156,
+   "n evaluados (silueta)": 13848,
+   "Nota": "one-hot modalidad; k-means++; n_init=10"
+  },
+  {
+   "Algoritmo": "Jerárquico (promedio)",
+   "k usado/obtenido": 3,
+   "Silueta (Gower)": 0.3986749351024627,
+   "Davies-Bouldin": 1.015613414778388,
+   "Calinski-Harabasz": 860.246144808684,
+   "Cobertura": 100.0,
+   "ARI": 0.9997305287539794,
+   "ARI desv.": 0.0011745979295936,
+   "n evaluados (silueta)": 13848,
+   "Nota": "Gower precomputada; enlace promedio"
+  },
+  {
+   "Algoritmo": "K-Medoids (PAM)",
+   "k usado/obtenido": 10,
+   "Silueta (Gower)": 0.5202310681343079,
+   "Davies-Bouldin": 2.2549781671001576,
+   "Calinski-Harabasz": 1159.0982730078804,
+   "Cobertura": 100.0,
+   "ARI": 0.9921117733274226,
+   "ARI desv.": 0.0042286160858865,
+   "n evaluados (silueta)": 13848,
+   "Nota": "BUILD + alternante; medoides = procesos reales"
+  },
+  {
+   "Algoritmo": "DBSCAN",
+   "k usado/obtenido": 17,
+   "Silueta (Gower)": 0.5806607007980347,
+   "Davies-Bouldin": 1.6870341552131691,
+   "Calinski-Harabasz": 1123.5720284788474,
+   "Cobertura": 84.50317735413056,
+   "ARI": 0.9573909942723616,
+   "ARI desv.": 0.0041703758829959,
+   "n evaluados (silueta)": 11702,
+   "Nota": "eps=0.015 (k-dist), min_samples=20; k es SALIDA; silueta medida sobre el subconjunto sin ruido (11,702/13,848 procesos)"
+  },
+  {
+   "Algoritmo": "GMM",
+   "k usado/obtenido": 10,
+   "Silueta (Gower)": 0.4439205825328827,
+   "Davies-Bouldin": 2.1935230329602624,
+   "Calinski-Harabasz": 1875.490406024434,
+   "Cobertura": 100.0,
+   "ARI": 0.7866867833861587,
+   "ARI desv.": 0.0679710910000945,
+   "n evaluados (silueta)": 13848,
+   "Nota": "covarianza completa; k por BIC (min BIC=-1,678,975); reg_covar=1e-4"
+  }
+ ],
+ "descartados": [
+  {
+   "algoritmo": "DBSCAN",
+   "motivos": [
+    "cobertura 84,50 %, por debajo del mínimo de 90 %"
+   ]
+  }
+ ],
+ "admitidos": [
+  {
+   "algoritmo": "K-Medoids (PAM)",
+   "silueta": 0.5202310681343079,
+   "cobertura": 100.0,
+   "ari": 0.9921117733274226
+  },
+  {
+   "algoritmo": "GMM",
+   "silueta": 0.4439205825328827,
+   "cobertura": 100.0,
+   "ari": 0.7866867833861587
+  },
+  {
+   "algoritmo": "Jerárquico (promedio)",
+   "silueta": 0.3986749351024627,
+   "cobertura": 100.0,
+   "ari": 0.9997305287539794
+  },
+  {
+   "algoritmo": "K-Means",
+   "silueta": 0.2155517339706421,
+   "cobertura": 100.0,
+   "ari": 0.7375911930747244
+  },
+  {
+   "algoritmo": "K-Prototypes",
+   "silueta": 0.2022366523742675,
+   "cobertura": 100.0,
+   "ari": 0.9881175370472002
+  }
+ ],
+ "ganador": {
+  "algoritmo": "K-Medoids (PAM)",
+  "k": 10,
+  "silueta": 0.5202310681343079,
+  "cobertura": 100.0,
+  "ari": 0.9921117733274226,
+  "ari_desv": 0.0042286160858865,
+  "segundo": "GMM",
+  "silueta_segundo": 0.4439205825328827,
+  "diferencia": 0.07631048560142517
+ },
+ "tabla7": [
+  {
+   "Algoritmo": "LÍNEA BASE: aleatoria",
+   "k usado/obtenido": 5,
+   "Silueta (Gower)": -0.0087934993207454,
+   "Davies-Bouldin": 110.98766403814857,
+   "Calinski-Harabasz": 0.6193655536926811,
+   "Cobertura": 100.0,
+   "ARI": 5.21636223394248e-05,
+   "ARI desv.": 0.0001432317244974,
+   "n evaluados (silueta)": 13848,
+   "Nota": "k=5 (igual que K-Means); semilla 42"
+  },
+  {
+   "Algoritmo": "LÍNEA BASE: por modalidad",
+   "k usado/obtenido": 19,
+   "Silueta (Gower)": 0.6054539680480957,
+   "Davies-Bouldin": 1.8181615995244595,
+   "Calinski-Harabasz": 224.5657082547778,
+   "Cobertura": 100.0,
+   "ARI": 1.0,
+   "ARI desv.": 0.0,
+   "n evaluados (silueta)": 13848,
+   "Nota": "19 modalidades tras colapsar Catálogo Electrónico"
+  }
+ ],
+ "tabla8": [
+  {
+   "Grupo": 0,
+   "Procesos": 1082,
+   "Similitud semántica": 0.0063438633279588,
+   "Coincid. CPC": 0.0140121028698549,
+   "Desv. presupuesto": 2.4128742585533574,
+   "Distancia (km)": 167.40928743525183,
+   "Modalidad dominante": "Cotización",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 1,
+   "Procesos": 363,
+   "Similitud semántica": 0.0061727309946277,
+   "Coincid. CPC": 0.0,
+   "Desv. presupuesto": 0.5120502534050078,
+   "Distancia (km)": 217.86657214966,
+   "Modalidad dominante": "Licitación de Seguros",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 2,
+   "Procesos": 1891,
+   "Similitud semántica": 0.0038365776668173,
+   "Coincid. CPC": 0.0076150185087255,
+   "Desv. presupuesto": 0.1479137016133268,
+   "Distancia (km)": 187.84733833248475,
+   "Modalidad dominante": "Menor Cuantía",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 3,
+   "Procesos": 388,
+   "Similitud semántica": 0.0085244341750295,
+   "Coincid. CPC": 0.0382302405498281,
+   "Desv. presupuesto": 0.5558711651546892,
+   "Distancia (km)": 143.22121198294883,
+   "Modalidad dominante": "Contratos entre Entidades Públicas o sus subsidiarias",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 4,
+   "Procesos": 351,
+   "Similitud semántica": 0.0042425583217422,
+   "Coincid. CPC": 0.0034188034188034,
+   "Desv. presupuesto": -1.6346406433273084,
+   "Distancia (km)": 218.0596598784336,
+   "Modalidad dominante": "Comunicación Social – Contratación Directa",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 5,
+   "Procesos": 553,
+   "Similitud semántica": 0.0143697029605583,
+   "Coincid. CPC": 0.0720313441832429,
+   "Desv. presupuesto": -0.1886187032459259,
+   "Distancia (km)": 124.06020427981782,
+   "Modalidad dominante": "Bienes y Servicios únicos",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 6,
+   "Procesos": 2257,
+   "Similitud semántica": 0.0996090627685112,
+   "Coincid. CPC": 0.996189632255206,
+   "Desv. presupuesto": 0.2469384038879758,
+   "Distancia (km)": 190.73754730938143,
+   "Modalidad dominante": "Subasta Inversa Electrónica",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 7,
+   "Procesos": 2986,
+   "Similitud semántica": 0.0063623306478719,
+   "Coincid. CPC": 0.000100468854655,
+   "Desv. presupuesto": 0.1830887682969099,
+   "Distancia (km)": 184.4644224561747,
+   "Modalidad dominante": "Subasta Inversa Electrónica",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 8,
+   "Procesos": 1016,
+   "Similitud semántica": 0.006325680776101,
+   "Coincid. CPC": 0.0001968503937007,
+   "Desv. presupuesto": -0.7788376881356893,
+   "Distancia (km)": 208.3734996104355,
+   "Modalidad dominante": "Contratacion directa",
+   "Lectura de negocio": ""
+  },
+  {
+   "Grupo": 9,
+   "Procesos": 2961,
+   "Similitud semántica": 0.0095882046342972,
+   "Coincid. CPC": 0.2548238207812676,
+   "Desv. presupuesto": 0.2494128888697113,
+   "Distancia (km)": 174.8449271788778,
+   "Modalidad dominante": "Subasta Inversa Electrónica",
+   "Lectura de negocio": ""
+  }
+ ],
+ "tabla9": [
+  {
+   "Grupo": 0,
+   "Procesos": 1082,
+   "Atípicos": 55,
+   "%": 5.08,
+   "Variable que más se aleja": "cpc_match_score (1.72σ)"
+  },
+  {
+   "Grupo": 1,
+   "Procesos": 363,
+   "Atípicos": 19,
+   "%": 5.23,
+   "Variable que más se aleja": "actividad_cpc_comprador (2.17σ)"
+  },
+  {
+   "Grupo": 2,
+   "Procesos": 1891,
+   "Atípicos": 95,
+   "%": 5.02,
+   "Variable que más se aleja": "cpc_match_score (1.72σ)"
+  },
+  {
+   "Grupo": 3,
+   "Procesos": 388,
+   "Atípicos": 20,
+   "%": 5.15,
+   "Variable que más se aleja": "actividad_cpc_comprador (1.95σ)"
+  },
+  {
+   "Grupo": 4,
+   "Procesos": 351,
+   "Atípicos": 18,
+   "%": 5.13,
+   "Variable que más se aleja": "cpc_match_score (2.44σ)"
+  },
+  {
+   "Grupo": 5,
+   "Procesos": 553,
+   "Atípicos": 28,
+   "%": 5.06,
+   "Variable que más se aleja": "cpc_match_score (2.84σ)"
+  },
+  {
+   "Grupo": 6,
+   "Procesos": 2257,
+   "Atípicos": 113,
+   "%": 5.01,
+   "Variable que más se aleja": "cpc_match_score (2.33σ)"
+  },
+  {
+   "Grupo": 7,
+   "Procesos": 2986,
+   "Atípicos": 150,
+   "%": 5.02,
+   "Variable que más se aleja": "actividad_cpc_comprador (2.12σ)"
+  },
+  {
+   "Grupo": 8,
+   "Procesos": 1016,
+   "Atípicos": 51,
+   "%": 5.02,
+   "Variable que más se aleja": "actividad_cpc_comprador (2.05σ)"
+  },
+  {
+   "Grupo": 9,
+   "Procesos": 2961,
+   "Atípicos": 148,
+   "%": 5.0,
+   "Variable que más se aleja": "actividad_cpc_comprador (1.82σ)"
+  }
+ ],
+ "asignabilidad": [
+  {
+   "Algoritmo": "K-Prototypes",
+   "Asignación de un proveedor nuevo": "Directa por PROTOTIPO: distancia mixta (euclidiana en las numéricas + desacuerdo x gamma en la modalidad) al prototipo de cada grupo; gana el mínimo."
+  },
+  {
+   "Algoritmo": "K-Means",
+   "Asignación de un proveedor nuevo": "Directa por PROTOTIPO: distancia euclidiana al centroide en el espacio codificado (numéricas z-score + one-hot de modalidad)."
+  },
+  {
+   "Algoritmo": "Jerárquico (promedio)",
+   "Asignación de un proveedor nuevo": "SIN prototipo nativo. Se calcula el CENTROIDE EMPÍRICO de cada grupo (media de las numéricas + modalidad modal) y se asigna por Gower al más cercano."
+  },
+  {
+   "Algoritmo": "K-Medoids (PAM)",
+   "Asignación de un proveedor nuevo": "Directa por MEDOIDE: distancia de Gower a cada medoide, que es un proceso real del conjunto; gana el mínimo."
+  },
+  {
+   "Algoritmo": "DBSCAN",
+   "Asignación de un proveedor nuevo": "SIN prototipo nativo y con ruido. Se calcula el CENTROIDE EMPÍRICO de cada grupo real y se asigna por Gower; si la distancia supera eps, el proceso queda como ruido."
+  },
+  {
+   "Algoritmo": "GMM",
+   "Asignación de un proveedor nuevo": "Directa por PROTOTIPO probabilístico: se evalúa la densidad de cada componente y se asigna al de mayor probabilidad posterior (predict_proba)."
+  }
+ ],
+ "lineas_base": {
+  "aleatoria": -0.0087934993207454,
+  "modalidad": 0.6054539680480957
+ },
+ "tiempos": {
+  "preprocesamiento": 0.09,
+  "gower": 3.81,
+  "kprototypes_barrido": 731.75,
+  "kmeans_barrido": 10.49,
+  "linkage_average": 4.59,
+  "jerarquico_barrido": 10.69,
+  "pam_barrido": 53.1,
+  "k_distancias": 0.73,
+  "dbscan_barrido": 85.24,
+  "gmm_barrido": 23.34,
+  "estabilidad": 1137.37,
+  "isolation_forest": 2.65,
+  "mds": 84.87,
+  "TOTAL medido": 2148.72
+ },
+ "log": "LOG DE EJECUCIÓN — comparación de seis algoritmos de agrupamiento\nProyecto final de IA — ESPOL CCPG1044 Grupo #3 — SERCOP/OCDS\nGenerado: 2026-07-29 23:21:36\n\nVERSIONES DE LIBRERÍAS\n   python           3.11.15\n   numpy            2.4.6\n   pandas           3.0.5\n   scipy            1.17.1\n   scikit-learn     1.9.0\n   kmodes           0.12.2\n   matplotlib       3.11.1\n   so               Windows 10\n   scikit-learn-extra ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject\n\nSEMILLA: random_state = 42 en todos los ajustes\n\nDATOS\n   archivos ................ data/2024.jsonl.gz, 2025.jsonl.gz, 2026.jsonl.gz\n   procesos leídos ......... 90,076\n   procesos activos ........ 14,660\n   filas de la matriz ...... 13,848 x 6\n   matriz codificada ....... 13,848 x 24\n   Gower ................... 13,848^2 float32 = 0.714 GB\n   proveedor consultante ... ROCHE ECUADOR S.A. (EC-RUC-1790475689001-5192)\n\nTIEMPOS (segundos)\n   preprocesamiento              0.09\n   gower                         3.81\n   kprototypes_barrido         731.75\n   kmeans_barrido               10.49\n   linkage_average               4.59\n   jerarquico_barrido           10.69\n   pam_barrido                  53.10\n   k_distancias                  0.73\n   dbscan_barrido               85.24\n   gmm_barrido                  23.34\n   estabilidad                1137.37\n   isolation_forest              2.65\n   mds                          84.87\n   TOTAL medido               2148.72\n\nk SELECCIONADO POR ALGORITMO\n   K-Prototypes ............ k=3 (máx. silueta Gower)\n   K-Means ................. k=5 (máx. silueta Gower)\n   Jerárquico .............. k=3 (máx. silueta Gower)\n   K-Medoids (PAM) ......... k=10 (máx. silueta Gower)\n   DBSCAN .................. 17 grupos OBTENIDOS (eps=0.015, min_samples=20)\n   GMM ..................... k=10 (mín. BIC)\n\nDESVIACIONES Y LIMITACIONES DECLARADAS\n   1. scikit-learn-extra no importa con numpy 2.x:\n      ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject\n      -> PAM implementado en scripts/nucleo.py sobre la matriz de Gower\n         (init BUILD + refinamiento alternante; el SWAP exhaustivo de PAM clásico\n          es O(k(n-k)^2) por iteración e intratable con n=13.848).\n   2. La matriz de Gower se guarda en float32 (0.71 GB) en vez de float64 (1.43 GB)\n      por la memoria física disponible en la máquina.\n   3. La proyección MDS se calcula sobre una submuestra estratificada de 2,000 procesos:\n      SMACOF es O(n^2) por iteración y no es viable con n=13.848. Es sólo una figura;\n      ninguna métrica de la tabla 6 depende de ella.\n   4. Davies-Bouldin y Calinski-Harabasz se calculan sobre la matriz CODIFICADA\n      (euclidiana), no sobre Gower. Criterio secundario, así etiquetado.\n   5. 812 procesos activos (5,5%) quedaron fuera de la matriz por datos faltantes\n      (508 sin ítems, 304 sin provincia del comprador). No se imputó nada.\n   6. 'Catálogo Electrónico' no aparece entre los procesos activos: la regla de\n      colapsar convenios se aplicó pero resulta inocua sobre esta matriz.\n\nSALIDAS\n   OK  resultados/tabla6_comparacion.csv\n   OK  resultados/tabla7_lineas_base.csv\n   OK  resultados/tabla8_perfiles.csv\n   OK  resultados/tabla9_atipicos.csv\n   OK  resultados/asignabilidad.csv\n   OK  resultados/matriz_procesos.csv\n   OK  resultados/fig_codo_por_algoritmo.png\n   OK  resultados/fig_silueta_por_grupo_ganador.png\n   OK  resultados/fig_mds_grupos_ganador.png\n   OK  resultados/fig_kdistancias_dbscan.png\n\nRESULTADO\n   GANADOR: K-Medoids (PAM)  (silueta Gower = 0.5202)\n   DESCARTADO: DBSCAN -> cobertura 84.50% < 90%\n"
+}

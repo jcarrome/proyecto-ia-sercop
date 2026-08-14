@@ -1,0 +1,25 @@
+﻿algoritmo,proveedor,mejor_k,silueta_gower,davies_bouldin,calinski_harabasz,ari_vs_modalidad,ari_vs_cuartil,entropia,cobertura,descalificado,notas,ganador_portafolio
+K-Prototypes,P1,4,0.27,1.2514,836.3,0.0824,0.3489,0.7413,100.0,False,gamma=0.4286 | ruido=0.0 % | 10.3 s,False
+K-Prototypes,P2,4,0.4033,1.1764,1080.6,0.4136,0.2817,0.9005,100.0,False,gamma=0.5000 | ruido=0.0 % | 9.6 s,False
+K-Prototypes,P3,4,0.3931,1.1919,1138.6,0.4189,0.2667,0.9095,100.0,False,gamma=0.5000 | ruido=0.0 % | 9.1 s,False
+K-Means,P1,4,0.2715,1.2489,836.7,0.0828,0.3411,0.7389,100.0,False, | ruido=0.0 % | 0.0 s,False
+K-Means,P2,4,0.4251,1.1733,1083.4,0.4685,0.2264,0.8914,100.0,False, | ruido=0.0 % | 0.0 s,False
+K-Means,P3,4,0.4075,1.1849,1141.4,0.4711,0.2113,0.9012,100.0,False, | ruido=0.0 % | 0.0 s,False
+Jerárquico (average),P1,5,0.4742,0.4807,198.7,0.142,0.0138,0.155,100.0,True, | ruido=0.0 % | 0.2 s | DESCALIFICADO: entropía de tamaños 0.155 < 0.5,False
+Jerárquico (average),P2,5,0.5184,1.3743,524.4,0.5529,0.0082,0.5662,100.0,False, | ruido=0.0 % | 0.1 s,False
+Jerárquico (average),P3,5,0.517,1.1498,549.9,0.5443,0.0092,0.5675,100.0,False, | ruido=0.0 % | 0.2 s,False
+K-Medoids (PAM),P1,3,0.2467,1.7545,652.1,0.0953,0.0153,0.8093,100.0,False,FasterPAM | ruido=0.0 % | 0.1 s,True
+K-Medoids (PAM),P2,3,0.5526,1.3396,1003.8,0.5527,0.0086,0.805,100.0,False,FasterPAM | ruido=0.0 % | 0.1 s,True
+K-Medoids (PAM),P3,3,0.5271,1.3657,1032.3,0.4917,0.0092,0.8534,100.0,False,FasterPAM | ruido=0.0 % | 0.1 s,True
+DBSCAN/HDBSCAN,P1,2,0.5338,0.7896,763.9,0.1409,0.0139,0.3473,99.87,True,HDBSCAN(paquete hdbscan) mcs=30 | ruido=0.1 % | 0.0 s | DESCALIFICADO: entropía de tamaños 0.347 < 0.5,False
+DBSCAN/HDBSCAN,P2,3,0.5579,1.3203,1011.3,0.5559,0.0085,0.7979,99.27,False,HDBSCAN(paquete hdbscan) mcs=30 | ruido=0.7 % | 0.0 s,False
+DBSCAN/HDBSCAN,P3,3,0.5345,1.362,1037.1,0.4715,0.0096,0.8707,99.33,False,HDBSCAN(paquete hdbscan) mcs=30 | ruido=0.7 % | 0.0 s,False
+Gaussian Mixture,P1,4,0.1928,2.344,388.8,0.3936,0.0311,0.6922,100.0,True,"BIC=-313,530 | ruido=0.0 % | 0.1 s | DESCALIFICADO: no supera la línea base modalidad (0.1928 <= 0.2414)",False
+Gaussian Mixture,P2,4,0.4112,1.6845,788.9,0.722,0.0288,0.8507,100.0,False,"BIC=-343,768 | ruido=0.0 % | 0.0 s",False
+Gaussian Mixture,P3,4,0.3949,1.7451,801.9,0.6381,0.0307,0.9049,100.0,False,"BIC=-335,089 | ruido=0.0 % | 0.0 s",False
+K-Prototypes,PROMEDIO_P1_P3,4,0.3555,1.2066,1018.5,0.305,0.2991,0.8504,100.0,False,apto.,False
+K-Means,PROMEDIO_P1_P3,4,0.368,1.2024,1020.5,0.3408,0.2596,0.8438,100.0,False,apto.,False
+Jerárquico (average),PROMEDIO_P1_P3,5,0.5032,1.0016,424.3,0.4131,0.0104,0.4296,100.0,True,DESCALIFICADO. P1: entropía de tamaños 0.155 < 0.5,False
+K-Medoids (PAM),PROMEDIO_P1_P3,3,0.4421,1.4866,896.1,0.3799,0.011,0.8226,100.0,False,apto.,True
+DBSCAN/HDBSCAN,PROMEDIO_P1_P3,2,0.5421,1.1573,937.4,0.3894,0.0107,0.672,99.49,True,DESCALIFICADO. P1: entropía de tamaños 0.347 < 0.5,False
+Gaussian Mixture,PROMEDIO_P1_P3,4,0.333,1.9245,659.9,0.5846,0.0302,0.8159,100.0,True,DESCALIFICADO. P1: no supera la línea base modalidad (0.1928 <= 0.2414),False

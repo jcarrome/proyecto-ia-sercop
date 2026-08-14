@@ -1,0 +1,36 @@
+# Dependencias del proyecto — versiones exactas del entorno con el que se
+# entrenó y validó el modelo (Python 3.11.15, Windows 11).
+#
+#   python -m venv .venv
+#   .venv\Scripts\activate            (Windows)
+#   source .venv/bin/activate         (Linux / macOS)
+#   pip install -r requirements.txt
+#
+# Nota: NO se usa scikit-learn-extra. Su última versión (0.3.0) no compila
+# contra numpy 2.x y falla al importar con "numpy.dtype size changed".
+# K-Medoids (PAM) se resuelve con el paquete `kmedoids` (FasterPAM).
+
+# --- núcleo numérico y de datos ---
+numpy==2.4.6
+pandas==3.0.5
+scipy==1.17.1
+pyarrow==24.0.0
+
+# --- modelos de agrupamiento ---
+scikit-learn==1.9.0
+kmodes==0.12.2          # K-Prototypes (mixto numérico + categórico)
+kmedoids==0.5.5         # K-Medoids / PAM (FasterPAM, metric='precomputed')
+hdbscan==0.8.44         # densidad jerárquica
+gower==0.1.2            # distancia de Gower (referencia de validación)
+
+# --- persistencia del modelo ---
+joblib==1.5.3
+
+# --- gráficos y panel ---
+matplotlib==3.11.1
+streamlit==1.61.1
+altair==6.2.2
+
+# --- capturas automáticas del panel (opcional) ---
+# tras instalar:  python -m playwright install chromium
+playwright==1.62.0

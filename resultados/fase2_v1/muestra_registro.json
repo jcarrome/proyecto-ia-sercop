@@ -1,0 +1,332 @@
+{
+  "id": "ocds-5wno2w-SIE-GADMCLC-2025-004-131152-2026-03-05T08:08:12-05:00",
+  "tag": [
+    "compiled"
+  ],
+  "date": "2026-03-05T08:08:12-05:00",
+  "ocid": "ocds-5wno2w-SIE-GADMCLC-2025-004-131152",
+  "buyer": {
+    "id": "EC-RUC-0860040700001-131152",
+    "name": "GOBIERNO AUTONOMO DESCENTRALIZADO MUNICIPAL DEL CANTON LA CONCORDIA"
+  },
+  "awards": [
+    {
+      "id": "2437633-SIE-GADMCLC-2025-004",
+      "date": "2025-03-31T17:29:51-05:00",
+      "items": [
+        {
+          "id": "4281409-DS-SO",
+          "unit": {
+            "id": "436",
+            "name": "Unidad",
+            "scheme": "SERCOP"
+          },
+          "quantity": 1,
+          "description": "ALQUILER DE EQUIPO CAMINERO",
+          "classification": {
+            "id": "548000014",
+            "scheme": "CPC",
+            "description": "ALQUILER DE EQUIPO CAMINERO"
+          },
+          "additionalClassifications": [
+            {
+              "id": "54800.00.1",
+              "uri": "https://www.compraspublicas.gob.ec/ProcesoContratacion/compras/exe/verComProductos_exe.php?tipo=buscar&idProducto=54800.00.1",
+              "scheme": "CPC",
+              "description": "SERVICIOS DE ALQUILER DE EQUIPO  CON O SIN OPCION DE COMPRA  DE EQUIPOS PARA LA CONSTRUCCION  O DEMOLICION DE EDIFICIOS PARA TRABAJOS DE INGENIERIA CIVIL  CON OPERARIOS Y SERVICIOS OPERATIVOS PROPORCIONADOS POR LOS MISMOS"
+            }
+          ]
+        }
+      ],
+      "value": {
+        "amount": 56952.3,
+        "currency": "USD"
+      },
+      "suppliers": [
+        {
+          "id": "EC-RUC-1716861396001-978117",
+          "name": "PINCAY ANDRADE EVELYN LISSETTE"
+        }
+      ],
+      "description": "Por cumplir con los requisitos mínimos solicitados, los parámetros de calificación de conformidad al Termino de Referencia y Pliego del presente proceso."
+    }
+  ],
+  "tender": {
+    "id": "SIE-GADMCLC-2025-004-131152",
+    "lots": [
+      {
+        "id": "434343",
+        "title": "SERVICIOS DE ALQUILER DE EQUIPO PARA LA CONSTRUCCION O DEMOLICION DE EDIFICIOS O  PARA OBRAS DE INGENIERIA CIVIL CON OPERARIOS",
+        "value": {
+          "amount": 59956.78,
+          "currency": "USD"
+        },
+        "techniques": {
+          "hasElectronicAuction": true
+        }
+      }
+    ],
+    "title": "SIE-GADMCLC-2025-004-131152",
+    "status": "active",
+    "enquiries": [
+      {
+        "id": "3735154",
+        "date": "2025-02-28T00:00:00-05:00",
+        "answer": "En referencia al REGLAMENTO A LA LEY ORGÁNICA SISTEMA NACIONAL CONTRATACIÓN PÚBLICA en su Art. 73.- Aclaraciones. - El responsable designado por la máxima autoridad de la entidad contratante o su delegado, o la comisión técnica, según el caso, por propia iniciativa o a pedido de los participantes, a través de aclaraciones podrá modificar los pliegos, siempre que no alteren el objeto del contrato y el presupuesto referencial de los mismos.Por iniciativa del delegado técnico y por error involuntario es importante mencionar que se adjunta los Términos de Referencia, el cual incluye otros parámetros de calificación.",
+        "author": {
+          "id": "EC-RUC-0860040700001-131152",
+          "name": "GOBIERNO AUTONOMO DESCENTRALIZADO MUNICIPAL DEL CANTON LA CONCORDIA"
+        },
+        "description": "ACLARACION",
+        "dateAnswered": "2025-02-28T00:00:00-05:00"
+      },
+      {
+        "id": "3731856",
+        "date": "2025-02-24T00:00:00-05:00",
+        "answer": "De conformidad a los Términos de Referencias del procedimiento ?ALQUILER DE MAQUINARIA? No. SIE-GADMCLC-2025-004, el administrador del contrato tendrá de 5 días laborables para aprobar o devolver los documentos de pago con observaciones en caso de tenerlas.",
+        "author": {
+          "id": "EC-RUC-0104240684001-758195",
+          "name": "BRAVO QUIZHPE CRISTHIAN XAVIER"
+        },
+        "description": "Una vez entrega la documentación habilitante para el pago, cuantos días se toman para realizar el pago al contratista.?",
+        "dateAnswered": "2025-02-28T00:00:00-05:00"
+      },
+      {
+        "id": "3731840",
+        "date": "2025-02-24T00:00:00-05:00",
+        "answer": "El periodo ordinario para la renovación de matrícula son los primeros 60 días de cada año, fuera de este periodo es considerado como extraordinario, lo cual está sujeto al pago de un valor adicional por multa del 2 por 1000 del valor de la máquina más el 1 por 1000 del valor de la matrícula, por lo cual se aceptara la matricula 2024 adjuntado el respectivo oficio o formulario de solicitud de renovación de matrícula con el respectivo recibido del MTOP que se encuentre dentro de los 60 días establecidos.",
+        "author": {
+          "id": "EC-RUC-1312865510001-1010836",
+          "name": "MACIAS ESPINAR JANDRY MIGUEL"
+        },
+        "description": "Se acepta la matricular del año 2024 tomando en cuenta que estamos ha inicio del nuevo año.! Y recién tengo el oficio recibido del Mtop para el proceso del matriculación periodo 2025",
+        "dateAnswered": "2025-02-28T00:00:00-05:00"
+      }
+    ],
+    "tenderers": [
+      {
+        "id": "EC-RUC-0992346531001-35612",
+        "name": "EUFRATESINVEST S.A."
+      },
+      {
+        "id": "EC-RUC-1711307981001-511866",
+        "name": "CEVALLOS PURUNCAJAS MARIA EUGENIA"
+      },
+      {
+        "id": "EC-RUC-1716861396001-978117",
+        "name": "PINCAY ANDRADE EVELYN LISSETTE"
+      }
+    ],
+    "awardPeriod": {
+      "endDate": "2025-03-17T17:00:00-05:00",
+      "startDate": "2025-03-12T15:00:00-05:00",
+      "maxExtentDate": "2025-03-17T17:00:00-05:00",
+      "durationInDays": 5
+    },
+    "description": "ALQUILER DE MAQUINARIA",
+    "hasEnquiries": true,
+    "tenderPeriod": {
+      "startDate": "2025-02-24T15:00:00-05:00"
+    },
+    "awardCriteria": "ratedCriteria",
+    "enquiryPeriod": {
+      "endDate": "2025-02-26T15:00:00-05:00",
+      "startDate": "2025-02-24T15:00:00-05:00",
+      "maxExtentDate": "2025-02-26T15:00:00-05:00",
+      "durationInDays": 2
+    },
+    "procuringEntity": {
+      "id": "EC-RUC-0860040700001-131152",
+      "name": "GOBIERNO AUTONOMO DESCENTRALIZADO MUNICIPAL DEL CANTON LA CONCORDIA"
+    },
+    "numberOfTenderers": 3,
+    "procurementMethod": "open",
+    "mainProcurementCategory": "services",
+    "procurementMethodDetails": "Subasta Inversa Electrónica"
+  },
+  "parties": [
+    {
+      "id": "EC-RUC-0860040700001-131152",
+      "name": "GOBIERNO AUTONOMO DESCENTRALIZADO MUNICIPAL DEL CANTON LA CONCORDIA",
+      "roles": [
+        "buyer",
+        "procuringEntity"
+      ],
+      "address": {
+        "countryName": "ECUADOR",
+        "streetAddress": "EUGENIO ESPEJO CARCHI / A UNA CUADRA DEL MERCADO CENTRAL NS "
+      },
+      "identifier": {
+        "id": "EC-RUC-0860040700001-131152",
+        "scheme": "EC-RUC",
+        "legalName": "GOBIERNO AUTONOMO DESCENTRALIZADO MUNICIPAL DEL CANTON LA CONCORDIA"
+      },
+      "contactPoint": {
+        "name": "GOBIERNO AUTONOMO DESCENTRALIZADO MUNICIPAL DEL CANTON LA CONCORDIA"
+      }
+    },
+    {
+      "id": "EC-RUC-0992346531001-35612",
+      "name": "EUFRATESINVEST S.A.",
+      "roles": [
+        "tenderer"
+      ],
+      "address": {
+        "region": "GUAYAS",
+        "locality": "GUAYAQUIL",
+        "postalCode": "2301101",
+        "countryName": "ECUADOR",
+        "streetAddress": "AV JOAQUIN ORRANTIA 13 DE ENERO 604 TARQUI"
+      },
+      "identifier": {
+        "id": "EC-RUC-0992346531001-35612",
+        "scheme": "EC-RUC",
+        "legalName": "EUFRATESINVEST S.A."
+      },
+      "contactPoint": {
+        "name": "EUFRATESINVEST S.A."
+      }
+    },
+    {
+      "id": "EC-RUC-1711307981001-511866",
+      "name": "CEVALLOS PURUNCAJAS MARIA EUGENIA",
+      "roles": [
+        "tenderer"
+      ],
+      "address": {
+        "region": "PICHINCHA",
+        "locality": "QUITO",
+        "postalCode": "170155",
+        "countryName": "ECUADOR",
+        "streetAddress": "AV. CARLOS MANTILL LOS CIPRECES OE7-140 CALDERON (CARAPUNGO)"
+      },
+      "identifier": {
+        "id": "EC-RUC-1711307981001-511866",
+        "scheme": "EC-RUC",
+        "legalName": "CEVALLOS PURUNCAJAS MARIA EUGENIA"
+      },
+      "contactPoint": {
+        "name": "CEVALLOS PURUNCAJAS MARIA EUGENIA"
+      }
+    },
+    {
+      "id": "EC-RUC-1716861396001-978117",
+      "name": "PINCAY ANDRADE EVELYN LISSETTE",
+      "roles": [
+        "tenderer",
+        "supplier"
+      ],
+      "address": {
+        "countryName": "ECUADOR",
+        "streetAddress": "EUGENIO ESPEJO ESMERALDAS S/N "
+      },
+      "identifier": {
+        "id": "EC-RUC-1716861396001-978117",
+        "scheme": "EC-RUC",
+        "legalName": "PINCAY ANDRADE EVELYN LISSETTE"
+      },
+      "contactPoint": {
+        "name": "PINCAY ANDRADE EVELYN LISSETTE"
+      }
+    }
+  ],
+  "auctions": [
+    {
+      "id": "SIE-GADMCLC-2025-004-131152-2025-04-01T11:58:49.686Z-auction-1",
+      "period": {
+        "endDate": "2025-03-26T15:15:00-05:00",
+        "startDate": "2025-03-26T15:00:00-05:00"
+      },
+      "stages": [
+        {
+          "id": "SIE-GADMCLC-2025-004-131152-2025-04-01T11:58:49.686Z-stage-1",
+          "bids": [
+            {
+              "id": "2437633-auction-SIE-GADMCLC-2025-004",
+              "date": "2025-03-26T17:22:18-05:00",
+              "value": {
+                "amount": 56952.3,
+                "currency": "USD"
+              },
+              "tenderers": [
+                {
+                  "id": "EC-RUC-1716861396001-978117",
+                  "name": "PINCAY ANDRADE EVELYN LISSETTE"
+                }
+              ],
+              "relatedRound": "SIE-GADMCLC-2025-004-131152-2025-04-01T11:58:49.686Z-round-1"
+            },
+            {
+              "id": "2437332-auction-SIE-GADMCLC-2025-004",
+              "date": "2025-03-26T12:50:06-05:00",
+              "value": {
+                "amount": 59955,
+                "currency": "USD"
+              },
+              "tenderers": [
+                {
+                  "id": "EC-RUC-1716861396001-978117",
+                  "name": "PINCAY ANDRADE EVELYN LISSETTE"
+                }
+              ],
+              "relatedRound": "SIE-GADMCLC-2025-004-131152-2025-04-01T11:58:49.686Z-round-1"
+            }
+          ],
+          "title": "Subasta",
+          "rounds": [
+            {
+              "id": "SIE-GADMCLC-2025-004-131152-2025-04-01T11:58:49.686Z-round-1",
+              "period": {
+                "endDate": "2025-03-26T15:15:00-05:00",
+                "startDate": "2025-03-26T15:00:00-05:00"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "successful",
+      "winningBids": [
+        {
+          "id": "2437633-auction-SIE-GADMCLC-2025-004",
+          "date": "2025-03-26T17:22:18-05:00",
+          "value": {
+            "amount": 56952.3,
+            "currency": "USD"
+          },
+          "tenderers": [
+            {
+              "id": "EC-RUC-1716861396001-978117",
+              "name": "PINCAY ANDRADE EVELYN LISSETTE"
+            }
+          ],
+          "relatedRound": "SIE-GADMCLC-2025-004-131152-2025-04-01T11:58:49.686Z-round-1"
+        }
+      ]
+    }
+  ],
+  "language": "es",
+  "planning": {
+    "budget": {
+      "id": "360.7.3.05.04"
+    },
+    "rationale": "ALQUILER DE MAQUINARIA"
+  },
+  "contracts": [
+    {
+      "id": "2263993-SIE-GADMCLC-2025-004",
+      "value": {
+        "amount": 56952.3,
+        "currency": "USD"
+      },
+      "period": {
+        "endDate": "2025-06-29T00:00:00-05:00",
+        "startDate": "2025-04-30T00:00:00-05:00",
+        "durationInDays": 60
+      },
+      "status": "terminated",
+      "awardID": "2437633-SIE-GADMCLC-2025-004",
+      "dateSigned": "2025-04-15T00:00:00-05:00"
+    }
+  ],
+  "initiationType": "tender"
+}

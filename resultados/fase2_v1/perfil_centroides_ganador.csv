@@ -1,0 +1,11 @@
+﻿grupo,tamano,pct,distancia_km,cpc_match,sim_tfidf,desviacion_presupuesto,log_presupuesto,actividad_cpc_comprador,presupuesto_medio_usd,modalidad_dominante,pct_modalidad_dominante
+7,1681,56.03,185.9309,0.0,0.0034,3.4112,10.6864,3.3801,107185.56,Subasta Inversa Electrónica,100.0
+0,443,14.77,191.4649,0.0,0.0038,3.3652,10.6404,3.93,62157.04,Menor Cuantía,100.0
+3,213,7.1,206.1323,0.0,0.0038,2.5669,9.8421,1.5681,28125.34,Contratacion directa,100.0
+1,195,6.5,155.2213,0.0,0.0038,5.3384,12.6136,4.3692,356775.88,Cotización,100.0
+5,159,5.3,195.2842,0.0,0.0037,5.1029,12.3781,2.8553,1035500.59,Otros,100.0
+8,111,3.7,133.798,0.0,0.0026,2.8931,10.1683,2.8378,112815.2,Bienes y Servicios únicos,100.0
+4,72,2.4,178.5603,0.0,0.0017,1.3875,8.6627,4.4861,23985.71,Comunicación Social – Contratación Directa,100.0
+6,58,1.93,151.2814,0.0,0.0017,3.4183,10.6935,1.4483,112861.57,Contratos entre Entidades Públicas o sus subsidiarias,100.0
+2,54,1.8,175.0251,0.0,0.0022,3.7184,10.9936,1.1111,116502.92,Licitación de Seguros,100.0
+ruido,14,0.47,446.2309,0.2857,0.0422,4.9453,12.2205,29.4286,1562521.96,Subasta Inversa Electrónica,42.9

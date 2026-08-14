@@ -1,0 +1,4 @@
+﻿grupo,tamano,pct,distancia_km,cpc_jaccard4,modalidad_afinidad,sim_tfidf,desviacion_presupuesto,log_presupuesto,actividad_cpc_comprador,presupuesto_medio_usd,modalidad_dominante,pct_modalidad_dominante
+0,1500,50.0,199.0329,0.0013,1.0,0.0114,0.22,10.7165,3.5653,112345.01,Subasta Inversa Electrónica,100.0
+1,1308,43.6,201.3841,0.0008,0.0,0.0087,0.4029,10.8994,3.4717,241583.19,Menor Cuantía,33.9
+2,192,6.4,173.5455,0.5,0.974,0.2847,-0.0382,10.4582,1.9167,64451.28,Subasta Inversa Electrónica,97.4

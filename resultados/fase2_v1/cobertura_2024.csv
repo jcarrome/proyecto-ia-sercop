@@ -1,0 +1,19 @@
+campo,procesos_con_dato,total_procesos,porcentaje
+parties[],65898,66047,99.77
+parties[].address.region (supplier),61320,66047,92.84
+parties[].address.region (buyer),65108,66047,98.58
+awards[].suppliers[].id,62312,66047,94.34
+awards[].value.amount,62311,66047,94.34
+awards[].items[].classification.id,62311,66047,94.34
+awards[].items[].description,62312,66047,94.34
+buyer.id,66047,66047,100.00
+tender,63700,66047,96.45
+tender.items[].classification.id,9040,66047,13.69
+tender.items[].description,9040,66047,13.69
+tender.value.amount,58188,66047,88.10
+planning.budget,5283,66047,8.00
+tender.procurementMethodDetails,63700,66047,96.45
+tender.status,63700,66047,96.45
+tender.tenderPeriod.endDate,3256,66047,4.93
+tender.tenderers[],9350,66047,14.16
+bids.details[],409,66047,0.62

@@ -1,0 +1,12 @@
+# Normaliza los finales de línea para que el equipo pueda trabajar en
+# Windows, Linux o macOS sin diffs falsos.
+* text=auto eol=lf
+
+# Binarios: no tocar
+*.parquet binary
+*.pkl     binary
+*.npz     binary
+*.png     binary
+*.gz      binary
+*.docx    binary
+*.ipynb   binary

@@ -1,0 +1,23 @@
+{
+  "conservadas": [
+    "Subasta Inversa Electrónica",
+    "Menor Cuantía",
+    "Contratacion directa",
+    "Cotización",
+    "Bienes y Servicios únicos",
+    "Comunicación Social – Contratación Directa",
+    "Contratos entre Entidades Públicas o sus subsidiarias",
+    "Licitación de Seguros"
+  ],
+  "categorias": [
+    "Bienes y Servicios únicos",
+    "Comunicación Social – Contratación Directa",
+    "Contratacion directa",
+    "Contratos entre Entidades Públicas o sus subsidiarias",
+    "Cotización",
+    "Licitación de Seguros",
+    "Menor Cuantía",
+    "Otros",
+    "Subasta Inversa Electrónica"
+  ]
+}
