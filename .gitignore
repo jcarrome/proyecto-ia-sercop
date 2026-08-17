@@ -25,4 +25,5 @@ desktop.ini
 # --- temporales ---
 *.tmp
 *.log
+*.err
 !resultados/log_fase2_2.txt
