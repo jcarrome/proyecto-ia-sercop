@@ -35,10 +35,13 @@ if SCRIPTS not in sys.path:
     sys.path.insert(0, SCRIPTS)
 
 st.set_page_config(page_title="Compatibilidad proveedor–licitación · SERCOP",
-                   page_icon="🎯", layout="wide",
-                   initial_sidebar_state="collapsed")
+                   layout="wide", initial_sidebar_state="collapsed")
 
 PATRON_ID = re.compile(r"(\d{13})")
+# El OCID del SERCOP tiene la forma ocds-<publicador>-<CÓDIGO>-<id comprador>.
+# El CÓDIGO es el que identifica al proceso en el portal de compras públicas
+# (p. ej. SIE-MIMG-2024-135). Verificado en los 7.637 procesos del corte.
+PATRON_OCID = re.compile(r"^ocds-[a-z0-9]+-(.+)-\d+$")
 AVISO_DATOS = ("Los datos provienen de un corte local del portal de datos "
                "abiertos del SERCOP; el sistema no consume servicios externos.")
 
@@ -63,20 +66,20 @@ UMBRAL_BAJA = 0.05
 
 NIVELES = {
     "ALTA": {
-        "icono": "🟢", "color": "#15803d", "fondo": "#dcfce7", "borde": "#86efac",
-        "titulo": "Alta compatibilidad",
+        "color": "#15803d", "fondo": "#f0fdf4", "borde": "#86efac",
+        "punto": "#16a34a", "titulo": "Alta compatibilidad",
     },
     "MEDIA": {
-        "icono": "🟡", "color": "#a16207", "fondo": "#fef9c3", "borde": "#fde047",
-        "titulo": "Compatibilidad media",
+        "color": "#a16207", "fondo": "#fefce8", "borde": "#fde047",
+        "punto": "#ca8a04", "titulo": "Compatibilidad media",
     },
     "BAJA": {
-        "icono": "🟠", "color": "#c2410c", "fondo": "#ffedd5", "borde": "#fdba74",
-        "titulo": "Compatibilidad baja",
+        "color": "#c2410c", "fondo": "#fff7ed", "borde": "#fdba74",
+        "punto": "#ea580c", "titulo": "Compatibilidad baja",
     },
     "NULA": {
-        "icono": "⚪", "color": "#475569", "fondo": "#f1f5f9", "borde": "#cbd5e1",
-        "titulo": "Sin resultado concluyente",
+        "color": "#475569", "fondo": "#f8fafc", "borde": "#cbd5e1",
+        "punto": "#94a3b8", "titulo": "Sin resultado concluyente",
     },
 }
 
@@ -263,6 +266,19 @@ def analizar_proveedor(ruc):
         0.5 * tabla["cpc_jaccard4"].clip(0, 1) +
         0.5 * tabla["sim_tfidf"].clip(0, 1), 4)
 
+    # --- POR QUÉ COINCIDE ---------------------------------------------------
+    # El número de compatibilidad promedia dos señales y las pierde de vista.
+    # Esta columna dice CUÁL se activó, que es la pregunta que el proveedor
+    # se hace al mirar la lista.
+    hay_cpc = tabla["cpc_jaccard4"] > 0
+    hay_texto = tabla["sim_tfidf"] >= 0.15
+    hay_comprador = tabla["afinidad_comprador"] > 0
+    tabla["motivo"] = np.select(
+        [hay_cpc & hay_texto, hay_cpc, hay_texto, hay_comprador],
+        ["Rubro y descripción", "Mismo rubro", "Descripción similar",
+         "Comprador conocido"],
+        default="Coincidencia débil")
+
     # perfil descriptivo de cada grupo, con su proceso representativo
     perfil_grupos = []
     for g in grupos_ordenados:
@@ -375,6 +391,9 @@ def estilos():
       }
       .veredicto .nivel {font-size: 1.55rem; font-weight: 700; margin-bottom: .5rem;
                          letter-spacing: -.01em;}
+      .punto {display:inline-block; width:13px; height:13px; border-radius:50%;
+              margin-right:.6rem; vertical-align:middle; position:relative;
+              top:-2px;}
       .veredicto .cifra {font-size: 2.6rem; font-weight: 800; line-height: 1.05;
                          margin-bottom: .2rem;}
       .veredicto .expl  {font-size: 1.02rem; line-height: 1.5; margin: 0; opacity: .95;}
@@ -400,11 +419,28 @@ def estilos():
                 margin: 1.7rem 0 .3rem 0; letter-spacing: -.01em;}
       .subseccion {font-size: .92rem; color: #64748b; margin-bottom: .9rem;}
 
-      .chip {display:inline-block; padding:.16rem .6rem; border-radius:999px;
-             font-size:.78rem; font-weight:600; margin-right:.35rem;}
-      .chip-a {background:#dcfce7; color:#15803d;}
-      .chip-m {background:#fef9c3; color:#a16207;}
-      .chip-b {background:#ffedd5; color:#c2410c;}
+      .detalle {
+        background: #0f172a; color: #f8fafc; border-radius: 12px;
+        padding: 1.1rem 1.4rem; margin: 1.5rem 0 1.1rem 0;
+      }
+      .detalle-et {font-size: .76rem; text-transform: uppercase; opacity: .62;
+                   letter-spacing: .05em; font-weight: 600; margin-bottom: .3rem;}
+      .detalle-tit {font-size: 1.15rem; font-weight: 600; line-height: 1.4;}
+
+      .sub2 {font-size: 1.02rem; font-weight: 700; color: #0f172a;
+             margin-bottom: .8rem;}
+
+      .tdatos {width: 100%; border-collapse: collapse; font-size: .89rem;}
+      .tdatos td {padding: .5rem .2rem; border-bottom: 1px solid #e2e8f0;
+                  vertical-align: top;}
+      .tdatos td:first-child {color: #64748b; width: 52%;}
+      .tdatos td:last-child {color: #0f172a; font-weight: 600; text-align: right;}
+
+      .conclusion {
+        background: #f1f5f9; border-left: 3px solid #64748b; border-radius: 6px;
+        padding: .75rem .95rem; font-size: .9rem; color: #334155;
+        line-height: 1.5; margin-top: .3rem;
+      }
 
       div[data-testid="stMetricValue"] {font-size: 1.5rem;}
     </style>
@@ -413,7 +449,7 @@ def estilos():
 
 def cabecera(subtitulo):
     st.markdown(
-        f'<div class="hero"><h1>🎯 Compatibilidad proveedor–licitación</h1>'
+        f'<div class="hero"><h1>Compatibilidad proveedor–licitación</h1>'
         f'<p>{subtitulo}</p></div>', unsafe_allow_html=True)
 
 
@@ -518,53 +554,154 @@ def bloque_veredicto(r):
     st.markdown(
         f'<div class="veredicto" style="background:{est["fondo"]};'
         f'border-color:{est["borde"]};color:{est["color"]}">'
-        f'<div class="nivel">{est["icono"]} {est["titulo"]}</div>'
+        f'<div class="nivel"><span class="punto" '
+        f'style="background:{est["punto"]}"></span>{est["titulo"]}</div>'
         f'{cifra}{sub}'
         f'<p class="expl" style="margin-top:.7rem">{texto_veredicto(r)}</p>'
         f'</div>', unsafe_allow_html=True)
 
 
-def etiqueta_nivel(v):
-    if v >= UMBRAL_ALTA:
-        return "Alta"
-    if v >= UMBRAL_MEDIA:
-        return "Media"
-    if v >= UMBRAL_BAJA:
-        return "Baja"
-    return "Mínima"
+def codigo_sercop(ocid):
+    """Extrae el código con el que el proceso se busca en el portal."""
+    m = PATRON_OCID.match(str(ocid))
+    return m.group(1) if m else str(ocid)
 
 
 def vista_procesos(sub, n=300):
     """Convierte la tabla interna en la vista que ve el proveedor."""
     sub = sub.sort_values("compatibilidad", ascending=False).head(n)
     return pd.DataFrame({
-        "Qué se licita": sub["objeto"].str.slice(0, 58),
+        "Qué se licita": sub["objeto"].str.slice(0, 62),
+        "Por qué coincide": sub["motivo"],
+        "Compatibilidad": sub["compatibilidad"],
         "Provincia": sub["provincia_buyer"].str.title(),
         "Modalidad": sub["modalidad"],
         "Presupuesto": sub["presupuesto"].round(2),
-        "Qué tanto le calza": sub["compatibilidad"],
-        "Nivel": [etiqueta_nivel(v) for v in sub["compatibilidad"]],
-        "Código del proceso": sub["ocid"],
+        "Código del proceso": [codigo_sercop(o) for o in sub["ocid"]],
     })
 
 
 CONFIG_TABLA = {
-    "Qué se licita": st.column_config.TextColumn(width=300),
-    "Provincia": st.column_config.TextColumn(width=110),
-    "Modalidad": st.column_config.TextColumn(width=150),
-    "Presupuesto": st.column_config.NumberColumn(format="dollar", width=110),
-    "Qué tanto le calza": st.column_config.ProgressColumn(
-        format="%.2f", min_value=0.0, max_value=1.0, width=170,
-        help="0 = ninguna coincidencia con su historial; 1 = coincidencia total "
-             "de rubro y descripción."),
-    "Nivel": st.column_config.TextColumn(width=80),
-    "Código del proceso": st.column_config.TextColumn(width=250),
+    "Qué se licita": st.column_config.TextColumn(
+        width=310, help="Descripción del bien o servicio que la entidad "
+                        "necesita comprar."),
+    "Por qué coincide": st.column_config.TextColumn(
+        width=170,
+        help="Qué señal hizo que este proceso apareciera: «Mismo rubro» = "
+             "comparte el código CPC con lo que usted ya adjudicó; "
+             "«Descripción similar» = el texto de lo que se pide se parece al "
+             "de sus adjudicaciones; «Rubro y descripción» = las dos cosas; "
+             "«Comprador conocido» = ya le ha vendido a esa entidad."),
+    "Compatibilidad": st.column_config.ProgressColumn(
+        format="%.2f", min_value=0.0, max_value=1.0, width=150,
+        help="0 = ninguna coincidencia con su historial; 1 = coincidencia "
+             "total de rubro y descripción. Es el promedio de las dos señales."),
+    "Provincia": st.column_config.TextColumn(
+        width=105, help="Provincia de la entidad que compra."),
+    "Modalidad": st.column_config.TextColumn(
+        width=145, help="Procedimiento de contratación con el que se adjudica."),
+    "Presupuesto": st.column_config.NumberColumn(
+        format="dollar", width=105,
+        help="Presupuesto referencial publicado por la entidad."),
+    "Código del proceso": st.column_config.TextColumn(
+        width=200, help="Código con el que se busca el proceso en el portal "
+                        "de compras públicas del SERCOP."),
 }
+
+
+def barra_senal(etiqueta, valor, maximo, ayuda):
+    """Una señal del desglose, con su barra y su explicación."""
+    pct = 0 if maximo <= 0 else min(100.0, 100.0 * valor / maximo)
+    color = "#16a34a" if pct >= 50 else ("#ca8a04" if pct >= 15 else "#cbd5e1")
+    return (
+        f'<div style="margin-bottom:.85rem">'
+        f'<div style="display:flex;justify-content:space-between;'
+        f'font-size:.87rem;margin-bottom:.22rem">'
+        f'<span style="color:#0f172a;font-weight:600">{etiqueta}</span>'
+        f'<span style="color:#475569">'
+        + f"{valor:.3f}".replace(".", ",") + '</span></div>'
+        f'<div style="background:#e2e8f0;border-radius:999px;height:7px">'
+        f'<div style="background:{color};width:{pct:.1f}%;height:7px;'
+        f'border-radius:999px"></div></div>'
+        f'<div style="font-size:.79rem;color:#64748b;margin-top:.22rem">'
+        f'{ayuda}</div></div>')
+
+
+def detalle_proceso(fila, r):
+    """Ficha completa de un proceso: qué es, por qué apareció y con qué datos."""
+    cod = codigo_sercop(fila["ocid"])
+    st.markdown(
+        f'<div class="detalle">'
+        f'<div class="detalle-et">Proceso seleccionado</div>'
+        f'<div class="detalle-tit">{fila["objeto"]}</div>'
+        f'</div>', unsafe_allow_html=True)
+
+    izq, der = st.columns([1.15, 1], gap="large")
+
+    with izq:
+        st.markdown('<div class="sub2">Por qué apareció en su lista</div>',
+                    unsafe_allow_html=True)
+        html = ""
+        html += barra_senal(
+            "Coincidencia de rubro (CPC)", float(fila["cpc_jaccard4"]), 1.0,
+            "Cuánto se solapan los códigos de producto de este proceso con los "
+            "de sus adjudicaciones anteriores.")
+        html += barra_senal(
+            "Similitud de la descripción", float(fila["sim_tfidf"]), 1.0,
+            "Parecido entre el texto de lo que se pide aquí y el de lo que "
+            "usted ya ha vendido.")
+        html += barra_senal(
+            "Relación previa con el comprador", float(fila["afinidad_comprador"]),
+            5.0, "Si ya le ha adjudicado esta misma entidad. Cero significa "
+                 "que sería un cliente nuevo.")
+        html += barra_senal(
+            "Actividad del comprador en el rubro",
+            float(fila["actividad_cpc_comprador"]), 5.0,
+            "Con qué frecuencia esta entidad compra en este rubro. Alta "
+            "actividad indica una necesidad recurrente.")
+        st.markdown(html, unsafe_allow_html=True)
+
+        compat = float(fila["compatibilidad"])
+        nivel = ("alta" if compat >= UMBRAL_ALTA else
+                 "media" if compat >= UMBRAL_MEDIA else
+                 "baja" if compat >= UMBRAL_BAJA else "mínima")
+        st.markdown(
+            f'<div class="conclusion"><b>En resumen:</b> la compatibilidad de '
+            f'este proceso es <b>{compat:.2f}'.replace(".", ",")
+            + f' sobre 1,00</b> ({nivel}), y la razón principal es '
+              f'«{fila["motivo"].lower()}».</div>',
+            unsafe_allow_html=True)
+
+    with der:
+        st.markdown('<div class="sub2">Datos del proceso</div>',
+                    unsafe_allow_html=True)
+        st.markdown(
+            f'<table class="tdatos">'
+            f'<tr><td>Entidad compradora</td><td>Provincia de '
+            f'{str(fila["provincia_buyer"]).title()}</td></tr>'
+            f'<tr><td>Modalidad</td><td>{fila["modalidad"]}</td></tr>'
+            f'<tr><td>Presupuesto referencial</td>'
+            f'<td>US$ {mil(float(fila["presupuesto"]), 2)}</td></tr>'
+            f'<tr><td>Distancia desde su provincia</td>'
+            f'<td>{mil(float(fila["distancia_km"]))} km</td></tr>'
+            f'<tr><td>Grupo del modelo</td><td>Grupo {int(fila["grupo"])}</td></tr>'
+            f'<tr><td>Marcado como atípico</td>'
+            f'<td>{"Sí" if bool(fila["atipico"]) else "No"}</td></tr>'
+            f'</table>', unsafe_allow_html=True)
+
+        st.markdown('<div class="sub2" style="margin-top:1.1rem">'
+                    'Cómo verlo en el portal</div>', unsafe_allow_html=True)
+        st.code(cod, language=None)
+        st.caption("Copie este código y péguelo en el buscador de procesos del "
+                   "portal de compras públicas del SERCOP. El panel no consulta "
+                   "servicios externos, por eso no abre la ficha directamente.")
+        with st.expander("Identificador OCDS completo"):
+            st.code(str(fila["ocid"]), language=None)
 
 
 def panel_tecnico(datos, r=None):
     """Todo el detalle metodológico, plegado. Es la capa de sustentación."""
-    with st.expander("🔬 Detalle técnico del modelo", expanded=False):
+    with st.expander("Detalle técnico del modelo", expanded=False):
         m = datos["modelo"]
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("Algoritmo", m["algoritmo_nombre"])
@@ -594,7 +731,7 @@ def panel_tecnico(datos, r=None):
                                      "DESCALIFICADO", "admitido")
             ganador = m["algoritmo_nombre"]
             agg["Estado"] = [
-                "🏆 GANADOR" if str(a).lower().startswith(str(ganador).lower()[:8])
+                "GANADOR" if str(a).lower().startswith(str(ganador).lower()[:8])
                 and not d else e
                 for a, d, e in zip(agg["algoritmo"], agg["descalificado"],
                                    agg["Estado"])]
@@ -690,16 +827,25 @@ def pantalla_resultado(datos, r):
         st.markdown('<div class="seccion">Sus oportunidades</div>',
                     unsafe_allow_html=True)
         st.markdown('<div class="subseccion">Ordenadas por qué tanto coinciden '
-                    'con su historial. La barra combina coincidencia de rubro '
-                    'y similitud de la descripción.</div>',
+                    'con su historial. <b>Haga clic en cualquier fila</b> para '
+                    'ver el detalle del proceso y por qué apareció aquí.</div>',
                     unsafe_allow_html=True)
-        vista = vista_procesos(oport)
-        st.dataframe(vista, hide_index=True, width="stretch", height=430,
-                     column_config=CONFIG_TABLA)
+        ordenada = oport.sort_values("compatibilidad", ascending=False).head(300)
+        vista = vista_procesos(ordenada)
+        sel = st.dataframe(vista, hide_index=True, width="stretch", height=430,
+                           column_config=CONFIG_TABLA, key="tabla_oport",
+                           on_select="rerun", selection_mode="single-row")
         st.download_button(
-            "⬇  Descargar mis oportunidades (CSV)",
+            "Descargar mis oportunidades (CSV)",
             data=vista.to_csv(index=False).encode("utf-8-sig"),
             file_name=f"oportunidades_{r['ruc']}.csv", mime="text/csv")
+
+        filas = sel.selection.rows if sel and sel.selection else []
+        if filas:
+            detalle_proceso(ordenada.iloc[filas[0]], r)
+        else:
+            st.info("Seleccione una fila de la tabla para ver el detalle "
+                    "completo del proceso.")
     else:
         st.markdown('<div class="seccion">Qué puede hacer</div>',
                     unsafe_allow_html=True)
@@ -711,7 +857,7 @@ def pantalla_resultado(datos, r):
             'u orientarse por rubro en la pantalla de exploración.</p></div>',
             unsafe_allow_html=True)
 
-    with st.expander(f"📋 Ver el resto del mercado "
+    with st.expander(f"Ver el resto del mercado "
                      f"({mil(len(resto))} procesos con baja coincidencia)",
                      expanded=False):
         st.caption("Procesos vigentes que el modelo no considera compatibles "
@@ -767,7 +913,7 @@ def pantalla_exploracion(datos, ruc, motivo=None):
     st.markdown(
         f'<div class="veredicto" style="background:{NIVELES["NULA"]["fondo"]};'
         f'border-color:{NIVELES["NULA"]["borde"]};color:{NIVELES["NULA"]["color"]}">'
-        f'<div class="nivel">ℹ️ Sin historial en este corte de datos</div>'
+        f'<div class="nivel">Sin historial en este corte de datos</div>'
         f'<p class="expl">'
         + (motivo if motivo else
            f'El RUC <code>{ruc}</code> no registra adjudicaciones en el '
@@ -830,7 +976,7 @@ def main():
     datos, err = cargar_todo()
     if err:
         cabecera("No se pudo iniciar el panel.")
-        st.error(err, icon="🚫")
+        st.error(err)
         st.stop()
 
     consulta = st.session_state.get("consulta")
@@ -842,7 +988,7 @@ def main():
     if len(ruc) != 13:
         pantalla_inicio(datos)
         st.error(f"El RUC debe tener exactamente 13 dígitos; recibí {len(ruc)}. "
-                 f"Verifique el número e intente de nuevo.", icon="🚫")
+                 f"Verifique el número e intente de nuevo.")
         return
 
     with st.spinner("Analizando procesos vigentes…"):

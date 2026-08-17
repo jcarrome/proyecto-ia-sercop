@@ -120,7 +120,29 @@ def main():
             pagina.get_by_role("button", name="Usar").first.click()
             captura("pantalla_resultado.png", "Sus oportunidades")
 
-            # --- 3) sin coincidencias (proveedor muy diversificado) ----
+            # --- 3) ficha de detalle de un proceso ---------------------
+            # La tabla se pinta en <canvas>: no hay celdas en el DOM. La
+            # selección se hace en la casilla de la izquierda, por coordenadas.
+            grid = pagina.locator("div[data-testid='stDataFrame']").first
+            grid.scroll_into_view_if_needed()
+            pagina.wait_for_timeout(800)
+            caja = grid.bounding_box()
+            pagina.mouse.click(caja["x"] + 22, caja["y"] + 35 + 35 * 2 + 17)
+            pagina.wait_for_selector("text=Por qué apareció en su lista",
+                                     timeout=60000)
+            pagina.wait_for_timeout(2200)
+            bloque = pagina.locator("div.detalle").first
+            bloque.scroll_into_view_if_needed()
+            pagina.wait_for_timeout(700)
+            c = bloque.bounding_box()
+            ruta = os.path.join(SALIDA, "pantalla_detalle_proceso.png")
+            pagina.screenshot(path=ruta,
+                              clip={"x": c["x"] - 10, "y": c["y"] - 10,
+                                    "width": c["width"] + 20, "height": 760})
+            generadas.append(ruta)
+            print(f"[capturas] {ruta}", flush=True)
+
+            # --- 4) sin coincidencias (proveedor muy diversificado) ----
             def nueva_consulta(ruc):
                 pagina.get_by_role("button", name="Nueva consulta").first.click()
                 pagina.wait_for_selector("text=Consulte su RUC", timeout=60000)
@@ -136,11 +158,11 @@ def main():
             nueva_consulta(RUC_DIVERSIFICADO)
             captura("pantalla_sin_coincidencias.png", "Sin resultado concluyente")
 
-            # --- 4) exploración (RUC sin historial) --------------------
+            # --- 5) exploración (RUC sin historial) --------------------
             nueva_consulta(RUC_SIN_HISTORIAL)
             captura("pantalla_exploracion.png", "Ubíquese por tipo de mercado")
 
-            # --- 5) panel técnico desplegado ---------------------------
+            # --- 6) panel técnico desplegado ---------------------------
             pagina.get_by_text("Detalle técnico del modelo").first.click()
             pagina.wait_for_selector("text=Comparación de los seis algoritmos",
                                      timeout=60000)
