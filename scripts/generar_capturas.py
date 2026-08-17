@@ -23,6 +23,9 @@ SALIDA = os.path.join(BASE, "resultados", "capturas")
 ANCHO = 1400
 ALTO = 1000
 RUC_SIN_HISTORIAL = "9999999999999"
+# proveedor real muy diversificado: el modelo NO encuentra coincidencias y lo
+# dice; es la captura que documenta el caso de fallo honesto
+RUC_DIVERSIFICADO = "1790732657001"
 
 
 def puerto_libre():
@@ -52,12 +55,16 @@ def instrucciones_manuales(motivo):
     print("  1. En una terminal:  streamlit run app/dashboard.py")
     print("  2. Abra http://localhost:8501 y ponga la ventana en 1400 px de ancho")
     print("     (F12 -> icono de dispositivo -> tamaño personalizado 1400x1000).")
-    print(f"  3. pantalla_inicio.png       -> la pantalla inicial, sin consultar nada.")
-    print(f"  4. pantalla_resultado.png    -> pulse «Usar» en el primer proveedor")
-    print(f"                                  de ejemplo y espere la tabla.")
-    print(f"  5. pantalla_exploracion.png  -> «Nueva consulta», escriba "
-          f"{RUC_SIN_HISTORIAL} y pulse «Consultar».")
-    print(f"  6. Guarde los tres archivos en: {SALIDA}")
+    print(f"  3. pantalla_inicio.png              -> la pantalla inicial, sin consultar nada.")
+    print(f"  4. pantalla_resultado.png           -> pulse «Usar» en el primer")
+    print(f"                                         proveedor de ejemplo.")
+    print(f"  5. pantalla_sin_coincidencias.png   -> «Nueva consulta», escriba")
+    print(f"                                         {RUC_DIVERSIFICADO}.")
+    print(f"  6. pantalla_exploracion.png         -> «Nueva consulta», escriba")
+    print(f"                                         {RUC_SIN_HISTORIAL}.")
+    print(f"  7. pantalla_detalle_tecnico.png     -> despliegue «Detalle técnico»")
+    print(f"                                         y capture ese bloque.")
+    print(f"  8. Guarde los archivos en: {SALIDA}")
 
 
 def main():
@@ -107,23 +114,42 @@ def main():
 
             # --- 1) pantalla de inicio ---------------------------------
             pagina.goto(url, wait_until="networkidle", timeout=90000)
-            captura("pantalla_inicio.png", "Compatibilidad proveedor")
+            captura("pantalla_inicio.png", "Consulte su RUC")
 
             # --- 2) resultado (proveedor de ejemplo) -------------------
             pagina.get_by_role("button", name="Usar").first.click()
-            captura("pantalla_resultado.png", "Resultado de la consulta")
+            captura("pantalla_resultado.png", "Sus oportunidades")
 
-            # --- 3) exploración (RUC sin historial) --------------------
-            pagina.get_by_role("button", name="Nueva consulta").first.click()
-            pagina.wait_for_selector("text=Consultar", timeout=60000)
-            pagina.wait_for_timeout(1500)
-            caja = pagina.locator("input[type='text']").first
-            caja.click()
-            caja.fill(RUC_SIN_HISTORIAL)
-            caja.press("Enter")
-            pagina.wait_for_timeout(1500)
-            pagina.get_by_role("button", name="Consultar").first.click()
-            captura("pantalla_exploracion.png", "Exploración de grupos")
+            # --- 3) sin coincidencias (proveedor muy diversificado) ----
+            def nueva_consulta(ruc):
+                pagina.get_by_role("button", name="Nueva consulta").first.click()
+                pagina.wait_for_selector("text=Consulte su RUC", timeout=60000)
+                pagina.wait_for_timeout(1400)
+                caja = pagina.locator("input[type='text']").first
+                caja.click()
+                caja.fill(ruc)
+                caja.press("Enter")
+                pagina.wait_for_timeout(1400)
+                pagina.get_by_role(
+                    "button", name="Buscar mis oportunidades").first.click()
+
+            nueva_consulta(RUC_DIVERSIFICADO)
+            captura("pantalla_sin_coincidencias.png", "Sin resultado concluyente")
+
+            # --- 4) exploración (RUC sin historial) --------------------
+            nueva_consulta(RUC_SIN_HISTORIAL)
+            captura("pantalla_exploracion.png", "Ubíquese por tipo de mercado")
+
+            # --- 5) panel técnico desplegado ---------------------------
+            pagina.get_by_text("Detalle técnico del modelo").first.click()
+            pagina.wait_for_selector("text=Comparación de los seis algoritmos",
+                                     timeout=60000)
+            pagina.wait_for_timeout(2200)
+            ruta = os.path.join(SALIDA, "pantalla_detalle_tecnico.png")
+            pagina.locator("div[data-testid='stExpander']").last.screenshot(
+                path=ruta)
+            generadas.append(ruta)
+            print(f"[capturas] {ruta}", flush=True)
 
             navegador.close()
     except Exception as e:
