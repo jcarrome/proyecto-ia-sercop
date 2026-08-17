@@ -1,0 +1,85 @@
+CONJUNTO DE EJEMPLOS PARA CORRER EL MODELO
+==========================================
+
+Contenido
+---------
+  ejemplos_rucs.csv    diez casos con el resultado que debe dar cada uno
+  correr_ejemplos.py   los corre todos y compara contra lo esperado
+
+
+Cómo correrlo
+-------------
+Desde la raíz del proyecto, con el entorno ya instalado:
+
+    python ejemplos/correr_ejemplos.py
+
+Tarda unos 10 segundos. No necesita los datos crudos (los 56 MB de OCDS) ni
+reentrenar nada: usa el modelo guardado en resultados/modelo_ganador.pkl y los
+perfiles ya calculados.
+
+Devuelve código de salida 0 si los diez casos coinciden y 1 si alguno discrepa,
+así que también sirve como prueba de regresión: si alguien cambia el modelo o
+los umbrales, este script lo detecta.
+
+
+Por qué estos diez casos
+------------------------
+No son diez RUCs cualquiera. Cada uno prueba una situación distinta, incluidas
+las que el modelo NO resuelve bien:
+
+  1-3  Los tres proveedores de referencia con los que se comparó el portafolio
+       de seis algoritmos (P1, P2, P3 de la Fase 2.2). Son el caso normal.
+
+   4   Proveedor con 30.721 adjudicaciones en 313 rubros. Es el caso de fallo
+       honesto: está tan diversificado que ningún grupo lo representa y la
+       coincidencia media es 0,008. El sistema responde "sin coincidencias" en
+       lugar de recomendar procesos al azar. Es el ejemplo más importante del
+       conjunto, porque muestra el límite del modelo en vez de esconderlo.
+
+   5   959 adjudicaciones, pero la coincidencia de rubro es perfecta (1,000) en
+       apenas 13 procesos: filtro muy estrecho y muy preciso.
+
+   6   Una sola adjudicación en un solo rubro. Poco historial no significa mal
+       resultado: da la compatibilidad más alta del conjunto (0,920), porque el
+       perfil es nítido.
+
+   7   105 adjudicaciones en un único rubro en Loja. El filtro más estrecho:
+       quedan 2 procesos de 7.637.
+
+   8   Proveedor mediano en Guayas. Caso intermedio, veredicto MEDIA.
+
+   9   Pocas adjudicaciones de monto alto.
+
+  10   RUC con formato válido (13 dígitos) que no existe en el histórico. Debe
+       llevar a la pantalla de exploración sin lanzar ningún error.
+
+Además, escribir algo como "123" en la interfaz debe ser rechazado por formato
+antes de consultar nada.
+
+
+Los cuatro veredictos
+---------------------
+El veredicto sale de la compatibilidad media de las oportunidades encontradas,
+con umbrales absolutos calibrados sobre la distribución real del corte:
+
+  ALTA         compatibilidad media >= 0,35
+  MEDIA        compatibilidad media >= 0,15
+  BAJA         compatibilidad media >= 0,05
+  NULA         no hay ningún proceso con compatibilidad >= 0,15
+  EXPLORACION  el RUC no tiene historial en el corte de datos
+
+La compatibilidad por proceso es el promedio de dos señales, ambas en [0, 1]:
+coincidencia de rubro CPC (Jaccard a 4 dígitos) y similitud textual (coseno
+TF-IDF entre el corpus del proveedor y el objeto del proceso).
+
+Importante: la compatibilidad mide parecido con el historial. NO es una
+probabilidad de adjudicación; no modela competencia, precio ni capacidad de
+cumplimiento.
+
+
+Ver los mismos casos en la interfaz
+-----------------------------------
+    streamlit run app/dashboard.py
+
+La pantalla inicial ofrece los tres primeros con un botón; los demás se escriben
+a mano en el campo de RUC.

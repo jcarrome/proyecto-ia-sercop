@@ -1,0 +1,11 @@
+﻿n,ruc,caso,provincia,adjudicaciones,rubros_cpc,veredicto_esperado,oportunidades_esperadas,compatibilidad_media_esperada,que_demuestra
+1,0991410465001,referencia P1,GUAYAS,79,39,ALTA,414,0.3954,Proveedor de referencia del modelo. Caso sano: filtra el 95 % del universo.
+2,1791310233001,referencia P2,PICHINCHA,75,8,MEDIA,638,0.3342,Proveedor con el que se entreno el modelo ganador (insumos medicos).
+3,1712399656001,referencia P3,SANTO DOMINGO DE LOS TSACHILAS,54,46,MEDIA,397,0.243,"Tercer proveedor de referencia, provincia pequena."
+4,1790732657001,muy diversificado,PICHINCHA,30721,313,NULA,0,0.0076,30.721 adjudicaciones en 313 rubros: el modelo NO encuentra coincidencias y lo declara asi en vez de inventar un resultado.
+5,0190005070001,nicho amplio en Azuay,AZUAY,959,58,ALTA,13,0.6213,959 adjudicaciones pero coincidencia de rubro perfecta en pocos procesos.
+6,1717641607001,una sola adjudicacion,PICHINCHA,1,1,ALTA,664,0.92,Historial minimo: un solo rubro da un perfil muy nitido.
+7,1705661435001,un solo rubro en Loja,LOJA,105,1,ALTA,2,0.8565,El filtro mas estrecho del banco: quedan poquisimos procesos.
+8,0990289751001,perfil intermedio,GUAYAS,15,8,MEDIA,144,0.1879,Caso tipico de proveedor mediano en Guayas.
+9,0991231366001,contratos de monto alto,GUAYAS,15,3,ALTA,32,0.5642,Pocas adjudicaciones pero de presupuesto elevado.
+10,9999999999999,RUC inexistente,n/d,0,0,EXPLORACION,0,0.0,"Valido en formato pero sin historial: debe llevar a la pantalla de exploracion, sin error."

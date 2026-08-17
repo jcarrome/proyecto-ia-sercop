@@ -22,6 +22,12 @@ desktop.ini
 .vscode/
 .idea/
 
+# --- el ZIP del entregable se reconstruye con scripts/armar_entregable.py ---
+entregable/*.zip
+entregable/_armado/
+# el poster se copia desde Descargas al armar; no se versiona aqui
+poster/
+
 # --- temporales ---
 *.tmp
 *.log

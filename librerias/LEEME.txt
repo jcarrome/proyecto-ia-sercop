@@ -1,0 +1,77 @@
+PUNTO (d) — LIBRERÍAS NO PÚBLICAS UTILIZADAS
+============================================
+
+RESPUESTA: NINGUNA.
+
+Todas las bibliotecas usadas son públicas y se instalan desde PyPI. Las
+versiones exactas están fijadas en requirements.txt (raíz del proyecto), de modo
+que el entorno se reconstruye con:
+
+    pip install -r requirements.txt
+
+Esta carpeta existe sólo para responder el punto (d) del entregable. No contiene
+archivos binarios ni ruedas (.whl) porque no hace falta ninguno.
+
+
+Bibliotecas públicas empleadas
+------------------------------
+  numpy 2.4.6              cálculo numérico
+  pandas 3.0.5             manejo de tablas
+  scipy 1.17.1             utilidades científicas
+  pyarrow 24.0.0           lectura y escritura de Parquet
+  scikit-learn 1.9.0       K-Means, jerárquico, DBSCAN, GMM, TF-IDF,
+                           StandardScaler, métricas, Isolation Forest
+  kmodes 0.12.2            K-Prototypes (datos mixtos)
+  kmedoids 0.5.5           K-Medoids / PAM (algoritmo FasterPAM)
+  hdbscan 0.8.44           agrupamiento jerárquico por densidad
+  gower 0.1.2              distancia de Gower (sólo para validar la propia)
+  joblib 1.5.3             persistencia del modelo entrenado
+  matplotlib 3.11.1        figuras
+  streamlit 1.61.1         interfaz
+  altair 6.2.2             gráficos de la interfaz
+  playwright 1.62.0        capturas automáticas (opcional)
+
+
+Una sustitución que hay que declarar
+------------------------------------
+El protocolo original preveía `scikit-learn-extra` para K-Medoids. NO se usa:
+su última versión publicada (0.3.0) no compila contra numpy 2.x y falla al
+importar con
+
+    ValueError: numpy.dtype size changed, may indicate binary incompatibility
+
+No existe una versión posterior que lo corrija. K-Medoids/PAM se resolvió con el
+paquete `kmedoids` (implementación FasterPAM), que también ajusta PAM sobre una
+matriz de distancias precalculada, con metric='precomputed' y random_state=42.
+Es una sustitución de una biblioteca pública por otra biblioteca pública; el
+algoritmo es el mismo.
+
+
+Dos componentes de implementación propia
+----------------------------------------
+No son bibliotecas externas, sino código del proyecto. Se mencionan aquí para
+que quede claro qué no vino de un paquete:
+
+1. DISTANCIA DE GOWER PONDERADA — `scripts/comparar_modelos.py`
+   Función `_gower_propio` y su versión para inferencia
+   `distancia_gower_a_referencias`.
+
+   Se implementó porque el paquete `gower` falla con DataFrames de pandas 3
+   (TypeError: Cannot interpret StringDtype as a data type) y porque hacía falta
+   calcular distancias contra un conjunto pequeño de referencias (los medoides)
+   sin construir la matriz completa.
+
+   VALIDACIÓN: coincide con gower.gower_matrix a 3e-8 (precisión de float32),
+   con y sin pesos. La comprobación está en el propio script.
+
+2. ÍNDICE DE COMPATIBILIDAD — `app/dashboard.py`
+   Promedio de coincidencia de rubro CPC y similitud textual, en escala absoluta
+   [0, 1]. Se añadió porque la afinidad al medoide mide tipicidad dentro del
+   grupo, no compatibilidad con el proveedor, y en estos datos las dos cosas van
+   en sentido contrario (el grupo más "afín" es el que no comparte rubros).
+
+
+Requisito de plataforma
+-----------------------
+Python 3.11. Las versiones están fijadas contra esa versión, que es la usada
+para entrenar y guardar modelo_ganador.pkl.
